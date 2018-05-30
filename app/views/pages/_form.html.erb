@@ -1,0 +1,44 @@
+<%= form_with(model: page, url: url_for(controller: :pages, action: :create, note_id: page.note_pages[0].note_id)) do |form| %>
+  <% if page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+      <% page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% page.user_pages.each do |user_page| %>
+    <%= form.fields_for :user_pages, user_page do | user_page_field| %>
+      <%= user_page_field.hidden_field :user_id %>
+    <% end %>
+  <% end %>
+
+  <% page.note_pages.each do |note_page| %>
+    <%= form.fields_for :note_pages, note_page do | note_page_field| %>
+      <%= note_page_field.hidden_field :note_id %>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "title" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :overview %>
+    <%= form.text_area :overview, class: "overview" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detail %>
+    <%= form.text_area :detail, class: "detail" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

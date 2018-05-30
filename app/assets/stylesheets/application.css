@@ -1,0 +1,336 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body {
+  background-color: white;
+}
+
+a:visited {
+    color: black;
+}
+
+a {
+    color: black;
+}
+
+.document_root{
+  width: 800px;
+  min-height: 800px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.header {
+  width: 800px;
+  min-height: 50px;
+  background-color: #000;
+  color: fff;
+}
+
+.site_title {
+  width: 700px;
+  min-height: 50px;
+  float: left;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.site_title a {
+    color: #fff;
+}
+
+.site_title a:visited {
+    color: #fff;
+}
+
+.site_setup {
+    background: #000;
+    color: #fff;
+    width: 100px;
+    height: 50px;
+    float: left;
+    border: 0px solid gray;
+}
+
+.body {
+  width: 800px;
+  min-height: 700px;
+  background-color: #fff;
+}
+
+.contents {
+  width: 800px;
+  min-height: 700px;
+  background-color: #fff;
+}
+
+.footer {
+  width: 800px;
+  min-height: 50px;
+  background-color: #000;
+}
+
+#dropmenu {
+  position: relative;
+  list-style-type: none;
+  width: 100px;
+  height: 50px;
+  margin: 0px;
+  padding: 0;
+  background: green;
+  border-bottom: 0px solid green;
+  border-radius: 3px 3px 0 0;
+}
+#dropmenu li {
+  width: 100px;
+  float: left;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+#dropmenu li a {
+  display: block;
+  margin: 0;
+  padding: 15px 0 11px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
+}
+#dropmenu li ul {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 0 3px 3px;
+}
+#dropmenu li ul li{
+  overflow: hidden;
+  width: 100px;
+  height: 0;
+  color: #fff;
+  -moz-transition: .2s;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  -ms-transition: .2s;
+  transition: .2s;
+}
+#dropmenu li ul li a{
+  padding: 13px 15px;
+  background: green;
+  text-align: left;
+  font-size: 12px;
+  font-weight: normal;
+}
+#dropmenu li:hover > a{
+  background: #6e7c0c;
+  color: #eff7b1;
+}
+#dropmenu > li:hover > a{
+  border-radius: 3px 3px 0 0;
+}
+#dropmenu li:hover ul li{
+  overflow: visible;
+  height: 38px;
+  border-top: 1px solid green;
+  border-bottom: 1px solid green;
+}
+#dropmenu li:hover ul li:first-child{
+  border-top: 0;
+}
+#dropmenu li:hover ul li:last-child{
+  border-bottom: 0;
+}
+#dropmenu li:hover ul li:last-child a{
+  border-radius: 0 0 3px 3px;
+}
+
+.menu {
+  width: 100%;
+}
+
+.title {
+  width: 200px;
+}
+
+.overview {
+  width: 400px;
+  min-height: 150px;
+}
+
+.detail {
+  width: 400px;
+  min-height: 300px;
+}
+
+.comment_detail {
+  width: 400px;
+  min-height: 100px;
+}
+
+.page_row {
+    width: 600px;
+    min-height: 100px;
+}
+
+.nav ul li{   
+    display: inline;
+ } 
+
+@media screen and ( max-width:600px )
+{
+  .document_root{
+    width: 600px;
+    min-height: 800px;
+    margin: 0 auto;
+    background-color: white;
+  }
+
+  .header {
+    width: 600px;
+    min-height: 50px;
+    background-color: #000;
+    color: fff;
+  }
+
+  .site_title {
+    width: 500px;
+    min-height: 50px;
+    float: left;
+    font-size: 20px;
+    vertical-align: middle;
+  }
+
+  .site_title a {
+      color: #fff;
+  }
+
+  .site_title a:visited {
+      color: #fff;
+  }
+
+  .site_setup {
+      background: #000;
+      color: #fff;
+      width: 100px;
+      height: 50px;
+      float: left;
+      border: 0px solid gray;
+  }
+
+  .body {
+    width: 800px;
+    min-height: 700px;
+    background-color: #fff;
+  }
+
+  .contents {
+    width: 800px;
+    min-height: 700px;
+    background-color: #fff;
+  }
+
+  .footer {
+    width: 800px;
+    min-height: 50px;
+    background-color: #000;
+  }
+
+  #dropmenu {
+    position: relative;
+    list-style-type: none;
+    width: 100px;
+    height: 50px;
+    margin: 0px;
+    padding: 0;
+    background: green;
+    border-bottom: 0px solid green;
+    border-radius: 3px 3px 0 0;
+  }
+  #dropmenu li {
+    width: 100px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  #dropmenu li a {
+    display: block;
+    margin: 0;
+    padding: 15px 0 11px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    text-decoration: none;
+  }
+  #dropmenu li ul {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 0 0 3px 3px;
+  }
+  #dropmenu li ul li{
+    overflow: hidden;
+    width: 100px;
+    height: 0;
+    color: #fff;
+    -moz-transition: .2s;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    -ms-transition: .2s;
+    transition: .2s;
+  }
+  #dropmenu li ul li a{
+    padding: 13px 15px;
+    background: green;
+    text-align: left;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  #dropmenu li:hover > a{
+    background: #6e7c0c;
+    color: #eff7b1;
+  }
+  #dropmenu > li:hover > a{
+    border-radius: 3px 3px 0 0;
+  }
+  #dropmenu li:hover ul li{
+    overflow: visible;
+    height: 38px;
+    border-top: 1px solid green;
+    border-bottom: 1px solid green;
+  }
+  #dropmenu li:hover ul li:first-child{
+    border-top: 0;
+  }
+  #dropmenu li:hover ul li:last-child{
+    border-bottom: 0;
+  }
+  #dropmenu li:hover ul li:last-child a{
+    border-radius: 0 0 3px 3px;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+}

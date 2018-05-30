@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<title>Avalon</title>
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<div class="document_root">
+  <div class="header">
+    <div class="site_title">
+      <a href="/">
+        書庫セラエノ
+      </a>
+    </div>
+    <div class="site_setup">
+      <ul id="dropmenu">
+          <li><a href="#">メニュー</a>
+          <ul>
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to 'Edit Profile', edit_user_registration_path %>
+              </li>
+              <li>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to 'Sign Up', new_user_registration_path %>
+              </li>
+              <li>
+                <%= link_to 'Login', new_user_session_path %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="menu">
+      [<%= link_to 'Home', root_path %>]
+      [<%= link_to 'Notes', notes_path %>]
+      [<%= link_to 'Categories', categories_path %>]
+    </div>
+    <div class="contents">
+<%= yield %>
+    </div>
+  </div>
+  <div class="footer">
+    FOOTER
+  </div>
+</div>
+</body>
+</html>

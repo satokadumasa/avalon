@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pagecomment Pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pagecomment</th>
+      <th>Page</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pagecomment_pages.each do |pagecomment_page| %>
+      <tr>
+        <td><%= pagecomment_page.pagecomment_id %></td>
+        <td><%= pagecomment_page.page_id %></td>
+        <td><%= link_to 'Show', pagecomment_page %></td>
+        <td><%= link_to 'Edit', edit_pagecomment_page_path(pagecomment_page) %></td>
+        <td><%= link_to 'Destroy', pagecomment_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pagecomment Page', new_pagecomment_page_path %>

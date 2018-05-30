@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Note Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Note</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @note_categories.each do |note_category| %>
+      <tr>
+        <td><%= note_category.note_id %></td>
+        <td><%= note_category.category_id %></td>
+        <td><%= link_to 'Show', note_category %></td>
+        <td><%= link_to 'Edit', edit_note_category_path(note_category) %></td>
+        <td><%= link_to 'Destroy', note_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Note Category', new_note_category_path %>

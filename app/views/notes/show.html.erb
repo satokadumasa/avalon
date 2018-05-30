@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <div class="page_row">
+    <div style="float: left;width: 600px;">
+      <div style="font-size: 20px; float: left;">
+        <%= @note.title %>
+      </div>
+      <div style="font-size: 10px; float: left;">
+        <%= @note.created_at %>
+      </div>
+    </div>
+    <div style="width: 600px;">
+      <strong>OrverView:</strong>
+      <%= simple_format @note.overview %>
+    </div>
+    <div style="width: 600px;">
+      <strong>Detail:</strong>
+      <%= simple_format @note.detail %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <% @note.pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |page| %>
+    <div class="page_row">
+      <div style="float: left;width: 600px;">
+        <div style="font-size: 20px; float: left;">
+          「<%= link_to page.title, url_for(controller: :pages, action: :show, note_id: @note.id, id: page.id) %>」
+        </div>
+        <div style="font-size: 10px; float: left;">
+          <%=page.created_at %>
+        </div>
+      </div>
+      <div style="width: 600px;">
+        <%= simple_format page.overview %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="nav">
+<%= will_paginate @note.pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>
+</div>
+
+<br>
+
+<%= link_to 'New Page', url_for(controller: :pages, action: :new, note_id: @note.id) %>|
+<% if current_user.has_role? :admin || @note.users[0].id == current_user.id %>
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<% end %>
+<%= link_to 'Back', notes_path %>

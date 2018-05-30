@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @pagecomment.title %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @pagecomment.detail %>
+</p>
+
+<%= link_to 'Edit', edit_pagecomment_path(@pagecomment) %> |
+<%= link_to 'Back', pagecomments_path %>
