@@ -5,7 +5,7 @@ class Page < ApplicationRecord
   has_many :note_pages
   has_many :notes, through: :note_pages
 
-  has_many :pagecomment_pages
+  has_many :pagecomment_pages, -> {order('pagecomment_id DESC')}
   has_many :pagecomments, through: :pagecomment_pages
 
   accepts_nested_attributes_for :user_pages, :note_pages

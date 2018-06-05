@@ -16,12 +16,12 @@
         <td><%= category.name %></td>
         <td><%= link_to 'Show', category %></td>
         <td>
-          <% if current_user.has_role? :admin %>
+          <% if current_user.has_role?(:admin) %>
             <%= link_to 'Edit', edit_category_path(category) %>
           <% end %>
         </td>
         <td>
-          <% if current_user.has_role? :admin %>
+          <% if current_user.has_role?(:admin) %>
             <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>
@@ -32,4 +32,6 @@
 
 <br>
 
+<% if current_user.has_role?(:admin) %>
 <%= link_to 'New Category', new_category_path %>
+<% end %>

@@ -36,40 +36,52 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
-    @page = Page.new(page_params)
-    logger.debug "PagesController::create() page:" + @page.inspect
-
+    ActiveRecord::Base.transaction do
+      @page = Page.new(page_params)
+      logger.debug "PagesController::create() page:" + @page.inspect
+      @page.save!
+    end
     respond_to do |format|
-      if @page.save
-        format.html { redirect_to :action => "show",:id => @page.id}
-        # format.json { render :show, status: :created, location: @page }
-      else
-        format.html { render :new }
-        # format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to :action => "show",:id => @page.id}
+      # format.json { render :show, status: :created, location: @page }
+    end
+    rescue => e
+    respond_to do |format|
+      format.html { render :new }
+      # format.json { render json: @page.errors, status: :unprocessable_entity }
     end
   end
 
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
   def update
+    ActiveRecord::Base.transaction do
+      @page.update(page_params)
+    end
     respond_to do |format|
-      if @page.update(page_params)
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
-        format.json { render :show, status: :ok, location: @page }
-      else
-        format.html { render :edit }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+      format.json { render :show, status: :ok, location: @page }
+    end
+    rescue => e
+    respond_to do |format|
+      format.html { render :edit }
+      format.json { render json: @page.errors, status: :unprocessable_entity }
     end
   end
 
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
-    @page.destroy
+    ActiveRecord::Base.transaction do
+      @page.destroy
+    end
     respond_to do |format|
       format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+    rescue => e
+    respond_to do |format|
+      format.html { redirect_to pages_url, notice: 'Page could not be deleted.' }
       format.json { head :no_content }
     end
   end

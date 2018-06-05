@@ -21,14 +21,14 @@
         </td>
         <td>
           <% if note %>
-          <% if current_user.has_role? :admin || note.users[0].id == current_user.id %>
+          <% if current_user.has_role?(:admin) || note.users[0].id == current_user.id %>
           <%= link_to 'Edit', url_for(controller: :notes, action: :edit, id: note.id) %>
           <% end %>
           <% end %>
         </td>
         <td>
           <% if note %>
-          <% if current_user.has_role? :admin || note.users[0].id == current_user.id %>
+          <% if current_user.has_role?(:admin) || note.users[0].id == current_user.id %>
           <%= link_to 'Delete', url_for(controller: :notes, action: :destroy, id: note.id), data: { confirm: 'Are you sure?' } %>
           <% end %>
           <% end %>

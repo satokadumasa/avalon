@@ -76,5 +76,7 @@
 </div>
 
 
+<% if @page.users[0].id == current_user.id %>
 <%= link_to 'Edit', url_for(controller: :pages, action: :edit, id: @page.id, note_id: @page.note_pages[0].page_id) %>|
+<% end %>
 <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %>
