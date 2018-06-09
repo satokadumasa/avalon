@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bookemarks
   resources :user_pagecomments
   # resources :pagecomment_pages
   resources :pagecomments

@@ -1,0 +1,27 @@
+<%= form_with(model: bookemark, local: true) do |form| %>
+  <% if bookemark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bookemark.errors.count, "error") %> prohibited this bookemark from being saved:</h2>
+
+      <ul>
+      <% bookemark.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note_id %>
+    <%= form.number_field :note_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

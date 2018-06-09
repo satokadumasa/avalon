@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bookemark.user_id %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @bookemark.note_id %>
+</p>
+
+<%= link_to 'Edit', edit_bookemark_path(@bookemark) %> |
+<%= link_to 'Back', bookemarks_path %>

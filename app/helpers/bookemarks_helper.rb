@@ -1,0 +1,2 @@
+module BookemarksHelper
+end

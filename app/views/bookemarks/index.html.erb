@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bookemarks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookemarks.each do |bookemark| %>
+      <tr>
+        <td><%= bookemark.user_id %></td>
+        <td><%= bookemark.note_id %></td>
+        <td><%= link_to 'Show', bookemark %></td>
+        <td><%= link_to 'Edit', edit_bookemark_path(bookemark) %></td>
+        <td><%= link_to 'Destroy', bookemark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bookemark', new_bookemark_path %>
