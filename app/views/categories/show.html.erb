@@ -22,7 +22,7 @@
     </div>
   <% end %>
 </div>
-<% if current_user.has_role? :admin %>
+<% if current_user && current_user.has_role?(:admin) %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <% end %>
 <%= link_to 'Back', categories_path %>
