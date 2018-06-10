@@ -19,14 +19,30 @@ user.save
 user.add_role "admin"
 
 # user2 = User.create :username => "operator", :email => "webmaster@rainyrook.sakura.ne.jp", :password => "glxre297"
-user2 = User.new
-user2.username = "operator"
-user2.email = "hoge2@example.com"
-user2.password = "glxre297"
-user2.confirmed_at = "2018-05-10 00:00:00"
-user2.admin_flg = true
-user2.save
-user2.add_role "operators"
+user = User.new
+user.username = "operator"
+user.email = "hoge2@example.com"
+user.password = "glxre297"
+user.confirmed_at = "2018-05-10 00:00:00"
+user.admin_flg = true
+user.save
+user.add_role "operators"
+
+user = User.new
+user.username = "user1"
+user.email = "hoge3@example.com"
+user.password = "glxre297"
+user.confirmed_at = "2018-05-10 00:00:00"
+user.admin_flg = true
+user.save
+
+user = User.new
+user.username = "user2"
+user.email = "hoge4@example.com"
+user.password = "glxre297"
+user.confirmed_at = "2018-05-10 00:00:00"
+user.admin_flg = true
+user.save
 
 category = Category.new
 category.name = "ファンタジー"
