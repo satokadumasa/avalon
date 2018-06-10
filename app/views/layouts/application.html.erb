@@ -13,7 +13,7 @@
   <div class="header">
     <div class="site_title">
       <a href="/">
-        書庫セラエノ
+        Celaeno Library
       </a>
     </div>
     <div class="site_setup">
@@ -43,9 +43,12 @@
 
   <div class="body">
     <div class="menu">
-      [<%= link_to 'Home', root_path %>]
+      [<%= link_to 'Top', root_path %>]
       [<%= link_to 'Notes', notes_path %>]
       [<%= link_to 'Categories', categories_path %>]
+      <% if user_signed_in? %>
+      [<%= link_to 'Home', home_index_path %>]
+      <% end %>
     </div>
     <div class="contents">
 <%= yield %>

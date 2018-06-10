@@ -10,6 +10,9 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @bookmark = Bookmark.new
+    @bookmark[0].nate_id = @nate.id
+    @bookmark[0].user_id = current_user.id
   end
 
   # GET /notes/new

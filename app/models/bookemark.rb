@@ -1,2 +1,0 @@
-class Bookemark < ApplicationRecord
-end

@@ -1,10 +1,10 @@
-<%= form_with(model: bookemark, local: true) do |form| %>
-  <% if bookemark.errors.any? %>
+<%= form_with(model: bookmark, local: true) do |form| %>
+  <% if bookmark.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(bookemark.errors.count, "error") %> prohibited this bookemark from being saved:</h2>
+      <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
 
       <ul>
-      <% bookemark.errors.full_messages.each do |message| %>
+      <% bookmark.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

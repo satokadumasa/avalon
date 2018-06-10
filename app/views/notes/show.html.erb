@@ -20,7 +20,17 @@
     </div>
   </div>
 </div>
-
+<div>
+  <div>
+    <%= form_with(model: bookmark, local: true) do |form| %>
+      <%= form.hedden_field :user_id %>
+      <%= form.hedden_field :note_id %>
+      <%= form.submit %>
+    <% end %>
+  </div>
+</div>
+<%  %>
+■Page一覧<br>
 <div>
   <% @note.pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |page| %>
     <div class="page_row">

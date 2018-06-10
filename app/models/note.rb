@@ -8,6 +8,9 @@ class Note < ApplicationRecord
   has_many :note_pages
   has_many :pages, through: :note_pages
 
+  has_many :bookmarks
+  has_many :users, through: :bookmarks
+
   accepts_nested_attributes_for :user_notes, :note_categories, :categories
 
   validates :title, presence: true, length: { in: 1..256 }
