@@ -28,3 +28,38 @@ user2.admin_flg = true
 user2.save
 user2.add_role "operators"
 
+category = Category.new
+category.name = "ファンタジー"
+category.save
+
+category = Category.new
+category.name = "SF"
+category.save
+
+category = Category.new
+category.name = "恋愛"
+category.save
+
+category = Category.new
+category.name = "ホラー"
+category.save
+
+category = Category.new
+category.name = "ミステリー"
+category.save
+
+category = Category.new
+category.name = "エッセイ・ノンフィクション"
+category.save
+
+category = Category.new
+category.name = "歴史・時代・伝奇"
+category.save
+
+category = Category.new
+category.name = "評論"
+category.save
+
+category = Category.new
+category.name = "詩・童話"
+category.save
