@@ -7,7 +7,12 @@
         <%= @note.title %>
       </div>
       <div style="font-size: 10px; float: left;">
-        <%= @note.created_at %>
+        <%= @note.created_at %> 
+        <% if @note.user_notes[0].user.user_profile %>
+        [<%= link_to @note.user_notes[0].user.username, user_profile_path(@note.user_notes[0].user.user_profile) %>] 
+        <% else %>
+        [<%=@note.user_notes[0].user.username %>]
+        <% end %>
       </div>
     </div>
     <div style="width: 600px;">

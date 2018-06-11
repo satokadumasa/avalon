@@ -22,7 +22,11 @@
           <ul>
             <% if user_signed_in? %>
               <li>
-                <%= link_to 'Edit Profile', edit_user_registration_path %>
+                <%= link_to 'Edit Profile', edit_user_profile_path(current_user.user_profile) if current_user.user_profile %>
+                <%= link_to 'Regist Profile', new_user_profile_path unless current_user.user_profile %>
+              </li>
+              <li>
+                <%= link_to 'Edit Setting', edit_user_registration_path %>
               </li>
               <li>
                 <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
@@ -55,7 +59,7 @@
     </div>
   </div>
   <div class="footer">
-    FOOTER
+    
   </div>
 </div>
 </body>

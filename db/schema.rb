@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_06_095521) do
+ActiveRecord::Schema.define(version: 2018_06_11_031457) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -118,6 +118,18 @@ ActiveRecord::Schema.define(version: 2018_06_06_095521) do
   create_table "user_pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "pref_code"
+    t.string "postal_code"
+    t.string "address"
+    t.text "self_introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

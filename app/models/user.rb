@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :notes, through: :bookmarks
 
+  has_one :user_profile
+  
   accepts_nested_attributes_for :user_notes
   accepts_nested_attributes_for :notes
   # Include default devise modules. Others available are:

@@ -24,6 +24,7 @@ class BookmarksController < ApplicationController
   # POST /bookmarks
   # POST /bookmarks.json
   def create
+    logger.debug "bookmark_params:" + bookmark_params.inspect
     @bookmark = Bookmark.new(bookmark_params)
 
     respond_to do |format|
