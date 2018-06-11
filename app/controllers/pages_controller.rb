@@ -59,7 +59,7 @@ class PagesController < ApplicationController
       @page.update(page_params)
     end
     respond_to do |format|
-      format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+      format.html { redirect_to :action => "show",:id => @page.id}
       format.json { render :show, status: :ok, location: @page }
     end
     rescue => e

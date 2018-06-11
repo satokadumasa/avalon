@@ -1,4 +1,4 @@
-<%= form_with(model: page, url: url_for(controller: :pages, action: :create, note_id: page.note_pages[0].note_id)) do |form| %>
+<%= form_with(model: page, url: url_for(controller: :pages, :action => page.id ? "update" : "create", note_id: page.note_pages[0].note_id)) do |form| %>
   <% if page.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
