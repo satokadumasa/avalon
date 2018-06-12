@@ -13,12 +13,15 @@
 
   <% note.user_notes.each do |user_note| %>
     <%= form.fields_for :user_notes, user_note do | user_note_field| %>
+      <%= user_note_field.hidden_field :id %>
       <%= user_note_field.hidden_field :user_id %>
+      <%= user_note_field.hidden_field :note_id %>
     <% end %>
   <% end %>
 
   <% note.note_categories.each do |note_category| %>
     <%= form.fields_for :note_categories, note_category do | note_category_field| %>
+      <%= note_category_field.hidden_field :id %>
       <%= note_category_field.hidden_field :category_id %>
       <%= note_category_field.collection_select :category_id, Category.all, :id, :name %>
     <% end %>

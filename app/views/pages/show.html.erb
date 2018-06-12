@@ -42,12 +42,16 @@
   <div class="actions">
     <% @pagecomment.user_pagecomments.each do |user_pagecomments| %>
       <%= form.fields_for :user_pagecomments, user_pagecomments do | user_pagecomments| %>
+        <%= user_pagecomments.hidden_field :id %>
         <%= user_pagecomments.hidden_field :user_id %>
+        <%= user_pagecomments.hidden_field :pagecomment_id %>
       <% end %>
     <% end %>
     <% @pagecomment.pagecomment_pages.each do |pagecomment_pages| %>
       <%= form.fields_for :pagecomment_pages, pagecomment_pages do | pagecomment_pages| %>
+        <%= pagecomment_pages.hidden_field :id %>
         <%= pagecomment_pages.hidden_field :page_id %>
+        <%= pagecomment_pages.hidden_field :pagecomment_id %>
       <% end %>
     <% end %>
     <%= form.submit %>

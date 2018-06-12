@@ -52,7 +52,8 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1.json
   def update
     ActiveRecord::Base.transaction do
-      raise "ノートの更新ができませんでした。" unless @note.update(note_params)
+      # raise "ノートの更新ができませんでした。" unless @note.update(note_params)
+      raise "ノートの更新ができませんでした。" unless @note.update_attributes(note_params)
     end
     respond_to do |format|
       format.html { redirect_to @note, notice: 'Note was successfully updated.' }
@@ -90,6 +91,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :overview, :detail, user_notes_attributes: [:user_id], note_categories_attributes: [:category_id])
+      params.require(:note).permit(:title, :overview, :detail, user_notes_attributes: [:id,:user_id, :note_id], note_categories_attributes: [:id, :note_id,:category_id])
     end
 end

@@ -13,13 +13,17 @@
 
   <% page.user_pages.each do |user_page| %>
     <%= form.fields_for :user_pages, user_page do | user_page_field| %>
+      <%= user_page_field.hidden_field :id %>
       <%= user_page_field.hidden_field :user_id %>
+      <%= user_page_field.hidden_field :page_id %>
     <% end %>
   <% end %>
 
   <% page.note_pages.each do |note_page| %>
     <%= form.fields_for :note_pages, note_page do | note_page_field| %>
+      <%= note_page_field.hidden_field :id %>
       <%= note_page_field.hidden_field :note_id %>
+      <%= note_page_field.hidden_field :page_id %>
     <% end %>
   <% end %>
 
