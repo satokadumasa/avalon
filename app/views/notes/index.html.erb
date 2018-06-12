@@ -26,12 +26,12 @@
           <%= link_to 'Show', note %>
         </td>
         <td>
-          <% if note.user_notes[0].user.id == current_user.id || current_user.has_role?(:admin) %>
+          <% if current_user && (note.user_notes[0].user.id == current_user.id || current_user.has_role?(:admin)) %>
           <%= link_to 'Edit', edit_note_path(note) %>
           <% end %>
         </td>
         <td>
-          <% if note.user_notes[0].user.id == current_user.id || current_user.has_role?(:admin) %>
+          <% if current_user && (note.user_notes[0].user.id == current_user.id || current_user.has_role?(:admin)) %>
           <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>
