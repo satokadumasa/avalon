@@ -15,8 +15,10 @@ class PagesController < ApplicationController
     @pagecomment =  @page.pagecomments.build
     @pagecomment.pagecomment_pages.build
     @pagecomment.user_pagecomments.build
-    @pagecomment.pagecomment_pages[0].page_id = @page.id
-    @pagecomment.user_pagecomments[0].user_id = current_user.id
+    if current_user
+      @pagecomment.pagecomment_pages[0].page_id = @page.id
+      @pagecomment.user_pagecomments[0].user_id = current_user.id
+    end
   end
 
   # GET /pages/new

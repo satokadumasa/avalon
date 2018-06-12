@@ -15,6 +15,7 @@
   <%= simple_format @page.detail %>
 </p>
 <!--Page Comment Start-->
+<% if current_user %>
 <%= form_with(model: @pagecomment , local: true) do |form| %>
   <% if @pagecomment.errors.any? %>
     <div id="error_explanation">
@@ -52,6 +53,7 @@
     <%= form.submit %>
   </div>
 <% end %>
+<% end %>
 
 <div>
   <% @page.pagecomments.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |pagecomment| %>
@@ -76,7 +78,7 @@
 </div>
 
 
-<% if @page.users[0].id == current_user.id %>
+<% if current_user && @page.users[0].id == current_user.id %>
 <%= link_to 'Edit', url_for(controller: :pages, action: :edit, id: @page.id, note_id: @page.note_pages[0].page_id) %>|
 <% end %>
 <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %>
