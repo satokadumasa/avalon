@@ -73,6 +73,7 @@ a {
 .contents {
   width: 800px;
   min-height: 700px;
+  overflow: hidden;
   background-color: #fff;
 }
 
@@ -178,6 +179,22 @@ a {
   min-height: 300px;
 }
 
+.side_bar{
+  width: 190px;
+  min-height: 300px;
+  float: left;
+  padding: 5px;
+  background-color: #e0ffff;
+}
+
+.main_contents{
+  width: 590px;
+  min-height: 300px;
+  float: left;
+  padding: 5px;
+  background-color: #ffffe0;
+}
+
 .comment_detail {
   width: 400px;
   min-height: 100px;
@@ -190,7 +207,7 @@ a {
 
 .nav ul li{   
     display: inline;
- } 
+ }
 
 @media screen and ( max-width:600px )
 {
