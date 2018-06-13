@@ -195,6 +195,41 @@ a {
   background-color: #ffffe0;
 }
 
+.notes {
+  width: 790px;
+  min-height: 300px;
+  float: left;
+  padding: 5px;
+  background-color: #ffffe0;
+  overflow: hidden;
+}
+
+.note {
+  width: 370px;
+  min-height: 100px;
+  float: left;
+  margin: 2px;
+  background-color: #ffffe0;
+}
+
+.note_title {
+  width: 360px;
+/*
+  min-height: 30px;
+  padding: 5px;
+*/
+  background-color: #ffffe0;
+}
+
+.note_overview {
+  width: 360px;
+/*
+  min-height: 70px;
+  padding: 5px;
+*/
+  background-color: #ffffe0;
+}
+
 .comment_detail {
   width: 400px;
   min-height: 100px;

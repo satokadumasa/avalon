@@ -1,77 +1,52 @@
 ■新着<br>
 ・ノート毎<br>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Overview</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="notes">
+  <% @notes.each do |note| %>
+  <div class="note">
+    <div class="note_title">
+      <%= note.title %>
+    </div>
+    <div class="note_overview">
+      <%= note.overview[0, 500] + '...' %><br>
+      <%= link_to 'Show', url_for(controller: :notes, action: :show, id: note.id) %>
+      <% if note %>
+        <% if current_user && (current_user.has_role?(:admin) || note.user_notes[0].user.id == current_user.id) %>
+          |<%= link_to 'Edit', url_for(controller: :notes, action: :edit, id: note.id) %>
+        <% end %>
+      <% end %>
+      <% if note %>
+        <% if current_user && (current_user.has_role?(:admin) || note.user_notes[0].user.id == current_user.id) %>
+          |<%= link_to 'Delete', url_for(controller: :notes, action: :destroy, id: note.id), data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.title %></td>
-        <td><%= note.overview[0, 40] + '...' %></td>
-        <td>
-          <% if note %>
-          <%= link_to 'Show', url_for(controller: :notes, action: :show, id: note.id) %>
-          <% end %>
-        </td>
-        <td>
-          <% if note %>
-          <% if current_user && (current_user.has_role?(:admin) || note.user_notes[0].user.id == current_user.id) %>
-          <%= link_to 'Edit', url_for(controller: :notes, action: :edit, id: note.id) %>
-          <% end %>
-          <% end %>
-        </td>
-        <td>
-          <% if note %>
-          <% if current_user && (current_user.has_role?(:admin) || note.user_notes[0].user.id == current_user.id) %>
-          <%= link_to 'Delete', url_for(controller: :notes, action: :destroy, id: note.id), data: { confirm: 'Are you sure?' } %>
-          <% end %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 ・ページ毎<br>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Overview</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pages.each do |page| %>
-      <tr>
-        <td><%= page.title %></td>
-        <td><%= page.overview[0, 40] + '...' %></td>
-        <td>
-          <% if page.notes[0] %>
-          <%= link_to 'Show', url_for(controller: :pages, action: :show, note_id: page.notes[0].id, id: page.id) %>
-          <% end %>
-        </td>
-        <td>
-          <% if page.notes[0] %>
-            <% if current_user && (current_user.has_role?(:admin) || page.users[0].id == current_user.id) %>
-              <%= link_to 'Edit', url_for(controller: :pages, action: :edit, note_id: page.notes[0].id, id: page.id) %>
-            <% end %>
-          <% end %>
-        </td>
-        <td>
-          <% if page.notes[0] %>
-            <% if current_user && (current_user.has_role?(:admin) || page.users[0].id == current_user.id) %>
-              <%= link_to 'Delete', url_for(controller: :pages, action: :destroy, note_id: page.notes[0].id, id: page.id), data: { confirm: 'Are you sure?' } %>
-            <% end %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="notes">
+  <% @pages.each do |page| %>
+  <div class="note">
+    <div class="note_title">
+      <%= page.title %>
+    </div>
+    <div class="note_overview">
+      <%= page.overview[0, 500] + '...' %><br>
+      <% if page.notes[0] %>
+        <%= link_to 'Show', url_for(controller: :pages, action: :show, note_id: page.notes[0].id, id: page.id) %>
+      <% end %>
+      <% if page.notes[0] %>
+        <% if current_user && (current_user.has_role?(:admin) || page.users[0].id == current_user.id) %>
+          |<%= link_to 'Edit', url_for(controller: :pages, action: :edit, note_id: page.notes[0].id, id: page.id) %>
+        <% end %>
+      <% end %>
+      <% if page.notes[0] %>
+        <% if current_user && (current_user.has_role?(:admin) || page.users[0].id == current_user.id) %>
+          |<%= link_to 'Delete', url_for(controller: :pages, action: :destroy, note_id: page.notes[0].id, id: page.id), data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
