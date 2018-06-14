@@ -18,12 +18,12 @@
   <br>
   <p>
     <strong>Overview:</strong>
-    <%= simple_format @page.overview %>
+    <%= simple_format tag_convert(@page.overview) %>
   </p>
 
   <p>
     <strong>Detail:</strong>
-    <%= simple_format @page.detail %>
+    <%= simple_format tag_convert(@page.detail) %>
   </p>
   <!--Page Comment Start-->
   <% if current_user %>

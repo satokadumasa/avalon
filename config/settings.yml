@@ -1,15 +1,15 @@
 # config/settings.yml
 development:
   pagenate_count:
-    notes: 5
-    pages: 5
+    notes: 10
+    pages: 10
  
 test:
   pagenate_count:
-    notes: 5
-    pages: 5
+    notes: 10
+    pages: 10
  
 production:
   pagenate_count:
-    notes: 20
-    pages: 20
+    notes: 10
+    pages: 10

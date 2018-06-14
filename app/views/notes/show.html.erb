@@ -42,11 +42,11 @@
       </div>
       <div style="width: 600px;">
         <strong>OrverView:</strong>
-        <%= simple_format @note.overview %>
+        <%= simple_format tag_convert(@note.overview) %>
       </div>
       <div style="width: 600px;">
         <strong>Detail:</strong>
-        <%= simple_format @note.detail %>
+        <%= simple_format tag_convert(@note.detail) %>
       </div>
     </div>
   </div>
