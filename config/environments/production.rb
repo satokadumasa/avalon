@@ -80,6 +80,8 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
   # Timezone
   config.time_zone = 'Tokyo'
+  # DB保存時のタイムゾーンをJSTに設定
+  config.active_record.default_timezone = :local
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'

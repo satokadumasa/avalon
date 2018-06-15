@@ -53,7 +53,8 @@ Rails.application.configure do
   config.assets.quiet = true
   # Timezone
   config.time_zone = 'Tokyo'
-
+  # DB保存時のタイムゾーンをJSTに設定
+  config.active_record.default_timezone = :local
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
