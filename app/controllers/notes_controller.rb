@@ -10,6 +10,7 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @pages = Page.joins(:notes).where("notes.id = #{params[:id]}").paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["notes"]).order("pages.id").all
     if current_user
       @bookmarked = Bookmark.where(:user_id => current_user.id)
       @bookmark = Bookmark.new
@@ -86,7 +87,7 @@ class NotesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.joins(:pages).order('notes.id, pages.id').find(params[:id])
+      @note = Note.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
