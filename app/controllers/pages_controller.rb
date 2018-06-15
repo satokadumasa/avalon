@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+    @title = @page.title
     logger.debug "PagesController::show() params:" + params.inspect
     @page = Page.find(params[:id])
     @pagecomment =  @page.pagecomments.build

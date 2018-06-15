@@ -10,6 +10,7 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @title = @note.title
     @pages = Page.joins(:notes).where("notes.id = #{params[:id]}").paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["notes"]).order("pages.id").all
     if current_user
       @bookmarked = Bookmark.where(:user_id => current_user.id)
