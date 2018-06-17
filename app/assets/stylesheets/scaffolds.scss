@@ -33,17 +33,14 @@ a {
   color: #000;
 
   &:visited {
-    color: #666;
+    color: #000;
+    background-color: #00ced1;
   }
 
   &:hover {
     color: #fff;
-    background-color: #000;
+    background-color: #00ced1;
   }
-}
-
-a:visited {
-    color: black;
 }
 
 .document_root{
@@ -221,7 +218,7 @@ a:visited {
   min-height: 300px;
   float: left;
   padding: 5px;
-  background-color: #ffefd5;
+  background-color: #ffffff;
   overflow: hidden;
 }
 
@@ -235,18 +232,12 @@ a:visited {
 
 .note_title {
   width: 380px;
-/*
-  min-height: 30px;
-*/
   padding: 5px;
   background-color: #ffffe0;
 }
 
 .note_overview {
   width: 380px;
-/*
-  min-height: 70px;
-*/
   padding: 5px;
   background-color: #ffffe0;
 }

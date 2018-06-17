@@ -13,11 +13,4 @@
  *= require_tree .
  *= require_self
  */
-body {
-  background-color: white;
-}
-
-a {
-    color: black;
-}
 

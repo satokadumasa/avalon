@@ -2,25 +2,33 @@
 <div class="side_bar">
   <%= link_to @page.notes[0].title, @page.notes[0] %><br>
   <ul>
-    <% @page.notes[0].pages.each do |page| %>
+    <% @pages.each do |page| %>
     <li>
       「<%= link_to page.title, url_for(controller: :pages, action: :show, note_id: @page.notes[0].id, id: page.id) %>」<br>
     </li>
     <% end %>
+    <div class="nav">
+      <%= will_paginate @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>
+    </div>
   </ul>
 </div>
 <div class="main_contents">
+  <h1>「<%= @page.title %>」</h1>
+  <% if @page.user_pages[0].user.user_profile %>
+  [<%=link_to @page.user_pages[0].user.username, url_for(controller: :user_profiles, action: :show, id: @page.user_pages[0].user.user_profile.id) %>]
+  <% else %>
+  <%=@page.user_pages[0].user.username %>
+  <% end %>
+  <%=@page.created_at %><br>
+  <% if current_user && @page.users[0].id == current_user.id %>
+  <%= link_to 'Edit', url_for(controller: :pages, action: :edit, id: @page.id, note_id: @page.note_pages[0].page_id) %>|
+  <% end %>
+  <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %>
+  <hr>
   <p>
-    <div style="font-size: 20px; float: left;">
-      「<%= @page.title %>」
-    </div>
-  </p>
-  <br>
-  <p>
-    <strong>Overview:</strong>
     <%= simple_format tag_convert(@page.overview) %>
   </p>
-
+  <hr>
   <p>
     <strong>Detail:</strong>
     <%= simple_format tag_convert(@page.detail) %>
@@ -68,15 +76,17 @@
       </div>
     <% end %>
   <% end %>
-
+  <hr>
   <div>
     <% @page.pagecomments.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |pagecomment| %>
+      <hr>
       <div class="page_row">
         <div style="float: left;width: 600px;">
           <div style="font-size: 20px; float: left;">
             <%=pagecomment.title %>
           </div>
           <div style="font-size: 10px; float: left;">
+            [<%=pagecomment.user_pagecomments[0].user.username %>]
             <%=pagecomment.created_at %>
           </div>
         </div>
@@ -86,6 +96,7 @@
       </div>
     <% end %>
   </div>
+  <hr>
   <!--Page Comment End-->
   <div class="nav">
   <%= will_paginate @page.pagecomments.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>

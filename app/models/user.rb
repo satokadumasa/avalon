@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :notes, through: :bookmarks
 
+  has_many :user_pagecomments
+  has_many :pagecomments, through: :user_pagecomments
+
   has_one :user_profile
   
   accepts_nested_attributes_for :user_notes

@@ -30,7 +30,7 @@ class PagecommentsController < ApplicationController
     respond_to do |format|
       if @pagecomment.save
         logger.debug "PagecommentsController::create pagecomment:" + @pagecomment.inspect
-        format.html { redirect_to url_for(controller: :pages, action: :show, note_id: @pagecomment.pages[0].notes[0].id, id: @pagecomment.pagecomment_pages[0].page.id)}
+        format.html { redirect_to url_for(controller: :pages, action: :show, note_id: @pagecomment.pagecomment_pages[0].page.notes[0].id, id: @pagecomment.pagecomment_pages[0].page.id)}
         
         # format.html { redirect_to @pagecomment, notice: 'Pagecomment was successfully created.' }
         # format.json { render :show, status: :created, location: @pagecomment }
@@ -76,8 +76,8 @@ class PagecommentsController < ApplicationController
       params.require(:pagecomment).permit(
         :title, 
         :detail, 
-        pagecomment_pages_attributes: [:page_id] ,
-        user_pagecomments_attributes: [:user_id]
+        pagecomment_pages_attributes: [:page_id, :pagecomment_id] ,
+        user_pagecomments_attributes: [:user_id, :pagecomment_id]
       )
     end
 end

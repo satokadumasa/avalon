@@ -1,12 +1,15 @@
 <div class="side_bar">
   <%= link_to @note.title, @note %><br>
   <ul>
-    <% @note.pages.each do |page| %>
+    <% @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |page| %>
     <li>
       「<%= link_to page.title, url_for(controller: :pages, action: :show, note_id: @note.id, id: page.id) %>」<br>
     </li>
     <% end %>
   </ul>
+  <div class="nav">
+    <%= will_paginate @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>
+  </div>
 </div>
 <div class="main_contents">
   <div>
@@ -28,53 +31,36 @@
   <div>
     <div class="page_row">
       <div style="float: left;width: 600px;">
-        <div style="font-size: 20px; float: left;">
-          「<%= @note.title %>」
-        </div>
-        <div style="font-size: 10px; float: left;">
+          <h1>「<%= @note.title %>」</h1>
           <% if @note.user_notes[0].user.user_profile %>
           [<%= link_to @note.user_notes[0].user.username, user_profile_path(@note.user_notes[0].user.user_profile) %>] 
           <% else %>
           [<%=@note.user_notes[0].user.username %>]
           <% end %>
           <%= @note.created_at %> 
-        </div>
       </div>
-      <div style="width: 600px;">
-        <strong>OrverView:</strong>
+      <br>
+      <br>
+      <% if current_user && @note.user_notes[0].user.id == current_user.id %>
+      <%= link_to 'New Page', url_for(controller: :pages, action: :new, note_id: @note.id) %>|
+      <% end %>
+      <% if current_user && (current_user.has_role?(:admin) || @note.user_notes[0].user.id == current_user.id) %>
+      <%= link_to 'Edit', edit_note_path(@note) %> |
+      <% end %>
+      <%= link_to 'Back', notes_path %>
+      <br>
+      <br>
+      <hr>
+      <div style="width: 600px;font-size: 9px;">
         <%= simple_format tag_convert(@note.overview) %>
       </div>
+      <hr>
       <div style="width: 600px;">
-        <strong>Detail:</strong>
         <%= simple_format tag_convert(@note.detail) %>
       </div>
     </div>
   </div>
-  ■Page一覧<br>
-  <div>
-    <% @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |page| %>
-      <div class="page_row">
-        <div style="float: left;width: 600px;">
-          <div style="font-size: 20px; float: left;">
-            「<%= link_to page.title, url_for(controller: :pages, action: :show, note_id: @note.id, id: page.id) %>」
-          </div>
-          <div style="font-size: 10px; float: left;">
-            <%=page.created_at %>
-          </div>
-        </div>
-        <div style="width: 600px;">
-          <%= simple_format page.overview %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="nav">
-    <%= will_paginate @note.pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>
-  </div>
-
   <br>
-
   <% if current_user && @note.user_notes[0].user.id == current_user.id %>
   <%= link_to 'New Page', url_for(controller: :pages, action: :new, note_id: @note.id) %>|
   <% end %>

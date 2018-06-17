@@ -16,6 +16,7 @@ class PagesController < ApplicationController
     @pagecomment =  @page.pagecomments.build
     @pagecomment.pagecomment_pages.build
     @pagecomment.user_pagecomments.build
+    @pages = Page.joins(:notes).where("notes.id = #{@page.notes[0].id}").paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["notes"]).order("pages.id").all
     if current_user
       @pagecomment.pagecomment_pages[0].page_id = @page.id
       @pagecomment.user_pagecomments[0].user_id = current_user.id
