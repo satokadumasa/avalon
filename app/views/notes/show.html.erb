@@ -52,7 +52,7 @@
       <br>
       <hr>
       <div style="width: 600px;font-size: 9px;">
-        <%= simple_format tag_convert(@note.overview) %>
+        <%= simple_format Coderay(tag_convert(@note.overview)) %>
       </div>
       <hr>
       <div style="width: 600px;">

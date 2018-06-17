@@ -26,7 +26,7 @@
   <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %>
   <hr>
   <p>
-    <%= simple_format tag_convert(@page.overview) %>
+    <%= simple_format Coderay(tag_convert(@page.overview)) %>
   </p>
   <hr>
   <p>
