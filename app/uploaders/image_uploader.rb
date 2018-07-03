@@ -3,7 +3,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
   
-  process :resize_to_limit => [700, 700]
+  process :resize_to_limit => [150, 150]
   process :convert => 'jpg'
 
   # Choose what kind of storage to use for this uploader:
@@ -24,7 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fit => [200, 200]
+    process :resize_to_fit => [100, 100]
   end
 
   def extension_whitelist
