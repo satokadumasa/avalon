@@ -59,10 +59,16 @@ gem 'will_paginate-bootstrap'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'paperclip'
-gem 'aws-sdk', '~> 2.3'
+# gem 'aws-sdk', '~> 2.3'
+# gem 'aws-sdk-s3', '~> 1'
+gem 'carrierwave'
+gem 'fog'
+gem 'rmagick', require: 'RMagick'
+
 gem 'redcarpet'
 gem 'coderay'
 gem 'nokogiri'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

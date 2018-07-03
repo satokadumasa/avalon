@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>----</strong>  
+  <%= image_tag @user_profile.profile_photo.to_s %>
+</p>
+<p>
   <strong>User:</strong>
   <%= @user_profile.user_id %>
 </p>

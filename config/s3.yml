@@ -1,5 +1,5 @@
 
-bucket: selaeno.com
-access_key_id: AKIAJNWGOXRCIPV72BNQ
-secret_access_key: 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
-s3_host_name: selaeno.com
+bucket: celaenoimages
+access_key_id: AKIAJ6HOMTSNNX4EXW5Q
+secret_access_key: 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
+s3_host_name: https://s3.amazonaws.com/celaenoimages/images

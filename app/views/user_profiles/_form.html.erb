@@ -10,11 +10,7 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.hidden_field :user_id %>
-  </div>
+  <%= form.hidden_field :user_id %>
 
   <div class="field">
     <%= form.label :first_name %>
@@ -26,6 +22,11 @@
     <%= form.text_field :last_name %>
   </div>
 
+  <div class="field">
+    <%= form.label :profile_photo %>
+    <%= form.file_field :profile_photo %>
+  </div>
+  
   <div class="field">
     <%= form.label :pref_code %>
     <%= form.select :pref_code, @prefs.invert %>
