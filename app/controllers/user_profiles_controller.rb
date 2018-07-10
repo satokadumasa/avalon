@@ -10,6 +10,15 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
+    resource = Aws::S3::Resource.new(
+      :region => 'us-east-1', # 東京以外のリージョンの場合は適宜変更してください
+      :access_key_id => 'ENV["AWS_ACCESS_KEY_ID"]',
+      :secret_access_key => 'ENV["AWS_SECRET_ACCESS_KEY"]'
+    )
+    arr = @user_profile.profile_photo.to_s.split("celaenoimages/")
+    object = resource.bucket('celaenoimages').object(arr[1])
+    url = URI.parse(object.presigned_url(:get, expires_in: 60)) # 有効期限を1分から変更する場合は適宜変更してください。
+    @profile_photo = url
   end
 
   # GET /user_profiles/new

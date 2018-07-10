@@ -59,6 +59,7 @@ gem 'will_paginate-bootstrap'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'paperclip'
+gem 'aws-sdk', '~> 2'
 # gem 'aws-sdk', '~> 2.3'
 # gem 'aws-sdk-s3', '~> 1'
 gem 'carrierwave'
