@@ -1,3 +1,4 @@
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <p id="notice"><%= notice %></p>
 <div class="side_bar">
   <%= link_to @page.notes[0].title, @page.notes[0] %><br>
@@ -23,7 +24,16 @@
   <% if current_user && @page.users[0].id == current_user.id %>
   <%= link_to 'Edit', url_for(controller: :pages, action: :edit, id: @page.id, note_id: @page.note_pages[0].page_id) %>|
   <% end %>
-  <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %>
+  <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %> | 
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="https://www.celaeno.site/notes/<%= @note.id %>/"
+    data-via="susanoo"
+    data-text="<%= @note.title %>"
+    data-lang="ja"
+    data-dnt="true">
+  Tweet
+  </a>
   <hr>
   <p>
     <%= simple_format Coderay(tag_convert(@page.overview)) %>

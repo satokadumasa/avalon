@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+  get 'home/index'
+  get "home", to: "home#index", as: "user_root"  
+  get 'welcome/index'
   resources :user_profiles
   resources :bookmarks
   resources :user_pagecomments
@@ -17,11 +21,9 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations',
     sessions:      'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-  get 'home/index'
-  get 'welcome/index'
-  root 'welcome#index'
 end
