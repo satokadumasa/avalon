@@ -27,7 +27,7 @@
   <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %> | 
   <a class="twitter-share-button"
     href="https://twitter.com/share"
-    data-url="https://www.celaeno.site/notes/<%= @note.id %>/"
+    data-url="https://www.celaeno.site/notes/<%= @page.note_pages[0].note_id %>/pages/<%= @page.title %>"
     data-via="susanoo"
     data-text="<%= @page.title %>"
     data-lang="ja"
