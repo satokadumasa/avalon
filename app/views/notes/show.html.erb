@@ -54,12 +54,18 @@
         href="https://twitter.com/share"
         data-url="https://www.celaeno.site/notes/<%= @note.id %>/"
         data-via="susanoo"
-        data-text="<%= @note.title %>"
+        data-text="「<%= @note.title %>」<%=@note.overview[0, 80] %>"
         data-lang="ja"
         data-dnt="true">
       Tweet
       </a>
+      <hr>
       <br>
+      <% if @tags %>
+        <% @tags.each do |tag| %>
+          <%= link_to tag, url_for(action: :index, tag: tag) %>
+        <% end %>
+      <% end %>
       <br>
       <hr>
       <div style="width: 600px;font-size: 9px;">

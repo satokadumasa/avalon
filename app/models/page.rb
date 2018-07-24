@@ -13,4 +13,6 @@ class Page < ApplicationRecord
   validates :title, presence: true, length: { in: 1..256 }
   validates :overview , length: { maximum: 2000 }
   validates :detail, presence: true, length: { in: 1..30000 }
+
+  serialize :tag
 end

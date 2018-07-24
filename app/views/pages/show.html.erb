@@ -29,11 +29,19 @@
     href="https://twitter.com/share"
     data-url="https://www.celaeno.site/notes/<%= @page.note_pages[0].note_id %>/pages/<%= @page.id %>"
     data-via="susanoo"
-    data-text="<%= @page.title %>"
+    data-text="「<%= @page.title %>」<%=@page.overview[0, 80] %>"
     data-lang="ja"
     data-dnt="true">
   Tweet
   </a>
+  <hr>
+  <br>
+  <% if @tags %>
+    <% @tags.each do |tag| %>
+      <%= link_to tag, url_for(action: :index, tag: tag) %>
+    <% end %>
+  <% end %>
+  <br>
   <hr>
   <p>
     <%= simple_format Coderay(tag_convert(@page.overview)) %>

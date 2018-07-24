@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags
   root 'welcome#index'
   get 'home/index'
   get "home", to: "home#index", as: "user_root"  

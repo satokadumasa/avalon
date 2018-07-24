@@ -4,13 +4,18 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).all
+    @pages = Page.paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"])
+    if params[:tag].present?
+      @pages = @pages.where("pages.tag LIKE ? ", "%#{params[:tag]}%") 
+    end
+    @pages.all
   end
 
   # GET /pages/1
   # GET /pages/1.json
   def show
     @title = @page.title
+    @tags = @page.tag || [""]
     logger.debug "PagesController::show() params:" + params.inspect
     @page = Page.find(params[:id])
     @pagecomment =  @page.pagecomments.build
@@ -35,13 +40,16 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
+    raise "あなたのページではありません。"  unless @page.user_pages[0].user_id == current_user.id
   end
 
   # POST /pages
   # POST /pages.json
   def create
+    page_attr = page_params
+    page_attr[:tag] = page_params[:tag].split(" ")
     ActiveRecord::Base.transaction do
-      @page = Page.new(page_params)
+      @page = Page.new(page_attr)
       logger.debug "PagesController::create() page:" + @page.inspect
       @page.save!
     end
@@ -59,8 +67,11 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
   def update
+    page_attr = page_params
+    page_attr[:tag] = page_params[:tag].split(" ")
+    raise "あなたのページではありません。"  unless @page.user_pages[0].user_id == current_user.id
     ActiveRecord::Base.transaction do
-      @page.update(page_params)
+      @page.update(page_attr)
     end
     respond_to do |format|
       format.html { redirect_to :action => "show",:id => @page.id}
@@ -76,6 +87,7 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
+    raise "あなたのページではありません。"  unless @page.user_pages[0].user_id == current_user.id
     ActiveRecord::Base.transaction do
       @page.destroy
     end
@@ -98,6 +110,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:title, :overview, :detail, user_pages_attributes: [:id, :user_id, :page_id], note_pages_attributes: [:id, :note_id, :page_id])
+      params.require(:page).permit(:title, :tags, :overview, :detail, user_pages_attributes: [:id, :user_id, :page_id], note_pages_attributes: [:id, :note_id, :page_id])
     end
 end

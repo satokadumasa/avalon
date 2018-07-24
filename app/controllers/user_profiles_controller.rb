@@ -31,6 +31,7 @@ class UserProfilesController < ApplicationController
 
   # GET /user_profiles/1/edit
   def edit
+    raise "あなたのプロフィールではありません。" unless @user_profile.user_id == current_user.id
   end
 
   # POST /user_profiles
@@ -52,6 +53,7 @@ class UserProfilesController < ApplicationController
   # PATCH/PUT /user_profiles/1
   # PATCH/PUT /user_profiles/1.json
   def update
+    raise "あなたのプロフィールではありません。" unless @user_profile.user_id == current_user.id
     respond_to do |format|
       if @user_profile.update(user_profile_params)
         format.html { redirect_to @user_profile, notice: 'User profile was successfully updated.' }
@@ -66,6 +68,7 @@ class UserProfilesController < ApplicationController
   # DELETE /user_profiles/1
   # DELETE /user_profiles/1.json
   def destroy
+    raise "あなたのプロフィールではありません。" unless @user_profile.user_id == current_user.id
     @user_profile.destroy
     respond_to do |format|
       format.html { redirect_to user_profiles_url, notice: 'User profile was successfully destroyed.' }
