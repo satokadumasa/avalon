@@ -1,5 +1,3 @@
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
 <div class="side_bar">
   <%= link_to @note.title, @note %><br>
   <ul>
@@ -50,15 +48,7 @@
       <%= link_to 'Edit', edit_note_path(@note) %> |
       <% end %>
       <%= link_to 'Back', notes_path %> | 
-      <a class="twitter-share-button"
-        href="https://twitter.com/share"
-        data-url="https://www.celaeno.site/notes/<%= @note.id %>/"
-        data-via="susanoo"
-        data-text="「<%= @note.title %>」<%=@note.overview[0, 80] %>"
-        data-lang="ja"
-        data-dnt="true">
-      Tweet
-      </a>
+      <a href="https://twitter.com/share?url=<%=URI.escape("https://www.celaeno.site/notes/#{@note.id}/") %>&via=susanoo&text=<%= @note.title %><%=@note.overview[0, 80] %>&lang=ja&rel=nofollow" target="_blank">Tweet</a>
       <hr>
       <br>
       <% if @tags %>
@@ -72,9 +62,7 @@
         <%= simple_format Coderay(tag_convert(@note.overview)) %>
       </div>
       <hr>
-      <div style="width: 600px;">
-        <%= simple_format tag_convert(@note.detail) %>
-      </div>
+      <%= simple_format tag_convert(@note.detail) %>
     </div>
   </div>
   <br>
