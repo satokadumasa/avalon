@@ -44,21 +44,21 @@ a {
 }
 
 .document_root{
-  width: 800px;
+  width: 1200px;
   min-height: 800px;
   margin: 0 auto;
   background-color: white;
 }
 
 .header {
-  width: 800px;
+  width: 1200px;
   min-height: 50px;
   background-color: #191970;
   color: fff;
 }
 
 .site_title {
-  width: 700px;
+  width: 1000px;
   min-height: 50px;
   float: left;
   font-size: 20px;
@@ -83,100 +83,23 @@ a {
 }
 
 .body {
-  width: 800px;
+  width: 1200px;
   min-height: 700px;
   background-color: #fff;
 }
 
 .contents {
-  width: 800px;
+  width: 1200px;
   min-height: 700px;
   overflow: hidden;
   background-color: #fff;
 }
 
 .footer {
-  width: 800px;
+  width: 1200px;
   min-height: 50px;
   background-color: #191970;
-}
-
-#dropmenu {
-  position: relative;
-  list-style-type: none;
-  width: 100px;
-  height: 50px;
-  margin: 0px;
-  padding: 0;
-  background: green;
-  border-bottom: 0px solid green;
-  border-radius: 3px 3px 0 0;
-}
-#dropmenu li {
-  width: 100px;
-  float: left;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-#dropmenu li a {
-  display: block;
-  margin: 0;
-  padding: 15px 0 11px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1;
-  text-decoration: none;
-}
-#dropmenu li ul {
-  list-style: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  border-radius: 0 0 3px 3px;
-}
-#dropmenu li ul li{
-  overflow: hidden;
-  width: 100px;
-  height: 0;
-  color: #fff;
-  -moz-transition: .2s;
-  -webkit-transition: .2s;
-  -o-transition: .2s;
-  -ms-transition: .2s;
-  transition: .2s;
-}
-#dropmenu li ul li a{
-  padding: 13px 15px;
-  background: green;
-  text-align: left;
-  font-size: 12px;
-  font-weight: normal;
-}
-#dropmenu li:hover > a{
-  background: #6e7c0c;
-  color: #eff7b1;
-}
-#dropmenu > li:hover > a{
-  border-radius: 3px 3px 0 0;
-}
-#dropmenu li:hover ul li{
-  overflow: visible;
-  height: 38px;
-  border-top: 1px solid green;
-  border-bottom: 1px solid green;
-}
-#dropmenu li:hover ul li:first-child{
-  border-top: 0;
-}
-#dropmenu li:hover ul li:last-child{
-  border-bottom: 0;
-}
-#dropmenu li:hover ul li:last-child a{
-  border-radius: 0 0 3px 3px;
+  color: fff;
 }
 
 .menu {
@@ -197,48 +120,62 @@ a {
   min-height: 300px;
 }
 
-.side_bar{
-  width: 190px;
+.side-bar{
+  width: 200px;
   min-height: 300px;
   float: left;
   padding: 5px;
   background-color: #e0ffff;
 }
 
+.left-contents{
+  width: 498px;
+  float: left;
+  margin: 1px;
+  background-color: #ffffe0;
+}
+
+.right-contents {
+  width: 498px;
+  float: left;
+  margin: 1px;
+  background-color: #ffffe0;
+}
 .main_contents{
-  width: 590px;
-  min-height: 300px;
+  width: 800px;
+  max-height: 300px;
   float: left;
   padding: 5px;
   background-color: #ffffe0;
 }
 
 .notes {
-  width: 790px;
-  min-height: 300px;
+  width: 496px;
   float: left;
-  padding: 5px;
+  margin: 1px;
   background-color: #ffffff;
   overflow: hidden;
 }
 
 .note {
-  width: 390px;
-  min-height: 100px;
+  width: 494px;
+  height: 200px;
   float: left;
-  margin: 2px;
+  margin: 1px;
   background-color: #ffffe0;
 }
 
-.note_title {
-  width: 380px;
+.note-title {
+  width: 492px;
   padding: 5px;
+  margin: 1px;
   background-color: #ffffe0;
 }
 
-.note_overview {
-  width: 380px;
+.note-overview {
+  width: 492px;
   padding: 5px;
+  margin: 1px;
   background-color: #ffffe0;
 }
 
@@ -254,27 +191,383 @@ a {
 
 .nav ul li{   
     display: inline;
- }
+}
 
+@media screen and ( max-width:1200px ){
+  .body {
+    width: 990px;
+    min-height: 700px;
+    background-color: #fff;
+  }
 
-@media screen and ( max-width:600px )
+  .header {
+    width: 990px;
+    min-height: 50px;
+    background-color: #191970;
+    color: fff;
+  }
+
+  .contents {
+    width: 990px;
+    min-height: 700px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  .footer {
+    width: 990px;
+    min-height: 50px;
+    background-color: #191970;
+    color: fff;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .title {
+    width: 200px;
+  }
+
+  .overview {
+    width: 400px;
+    min-height: 150px;
+  }
+
+  .detail {
+    width: 400px;
+    min-height: 300px;
+  }
+
+  .side-bar{
+    width: 200px;
+    min-height: 300px;
+    float: left;
+    padding: 5px;
+    background-color: #e0ffff;
+  }
+
+  .left-contents{
+    width: 393px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .right-contents {
+    width: 393px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+  .main_contents{
+    width: 588px;
+    min-height: 300px;
+    float: left;
+    padding: 5px;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .notes {
+    width: 391px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+
+  .note {
+    width: 389px;
+    height: 200px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-title {
+    width: 387px;
+    padding: 5px;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-overview {
+    width: 387px;
+    padding: 5px;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .comment_detail {
+    width: 400px;
+    min-height: 100px;
+  }
+
+  .page_row {
+    width: 600px;
+    min-height: 100px;
+  }
+
+  .nav ul li{   
+      display: inline;
+  }
+}
+
+@media screen and ( max-width:991px ){
+  .body {
+    width: 767px;
+    min-height: 700px;
+    background-color: #fff;
+  }
+
+  .header {
+    width: 767px;
+    min-height: 50px;
+    background-color: #191970;
+    color: fff;
+  }
+
+  .contents {
+    width: 767px;
+    min-height: 700px;
+    float: left;
+    background-color: #fff;
+  }
+
+  .footer {
+    width: 767px;
+    min-height: 50px;
+    background-color: #191970;
+    color: fff;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .title {
+    width: 200px;
+  }
+
+  .overview {
+    width: 394px;
+    min-height: 150px;
+  }
+
+  .detail {
+    width: 394px;
+    min-height: 300px;
+  }
+
+  .side-bar{
+    width: 150px;
+    min-height: 300px;
+    float: left;
+    padding: 5px;
+    background-color: #e0ffff;
+  }
+
+  .main-contents {
+    width: 570px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .left-contents{
+    width: 568px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .right-contents {
+    width: 568px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .notes {
+    width: 566px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+
+  .note {
+    width: 564px;
+    height: 200px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-title {
+    width: 562px;
+    padding: 5px;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-overview {
+    width: 562px;
+    padding: 5px;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .comment_detail {
+    width: 400px;
+    min-height: 100px;
+  }
+
+  .page_row {
+    width: 600px;
+    min-height: 100px;
+  }
+
+  .nav ul li{   
+      display: inline;
+  }
+}
+
+@media screen and ( max-width:767px ){
+  .body {
+    width: 570px;
+    min-height: 700px;
+    background-color: #fff;
+  }
+
+  .header {
+    width: 570px;
+    min-height: 50px;
+    background-color: #191970;
+    color: fff;
+  }
+
+  .contents {
+    width: 570px;
+    min-height: 700px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  .footer {
+    width: 570px;
+    min-height: 50px;
+    background-color: #191970;
+    color: fff;
+  }
+
+  .menu {
+    width: 570px;
+  }
+
+  .title {
+    width: 200px;
+  }
+
+  .overview {
+    width: 570px;
+    min-height: 150px;
+  }
+
+  .detail {
+    width: 570px;
+    min-height: 300px;
+  }
+
+  .side-bar{
+    display: none;
+  }
+
+  .main-contents {
+    width: 568px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .left-contents{
+    min-width: 566px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .right-contents {
+    min-width: 566px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .notes {
+    max-width: 564px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+
+  .note {
+    max-width: 562px;
+    height: 200px;
+    float: left;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-title {
+    max-width: 562px;
+    padding: 5px;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-overview {
+    min-width: 562px;
+    padding: 5px;
+    margin: 1px;
+    background-color: #ffffe0;
+  }
+
+  .comment_detail {
+    width: 570px;
+    min-height: 100px;
+  }
+
+  .page_row {
+      width: 570px;
+      min-height: 100px;
+  }
+
+  .nav ul li{   
+      display: inline;
+  }
+}
+
+@media screen and ( max-width:575px )
 {
   .document_root{
-    width: 600px;
+    width: 575px;
     min-height: 800px;
     margin: 0 auto;
     background-color: white;
   }
 
   .header {
-    width: 600px;
+    width: 575px;
     min-height: 50px;
     background-color: #000;
     color: fff;
   }
 
   .site_title {
-    width: 500px;
+    width: 575px;
     min-height: 50px;
     float: left;
     font-size: 20px;
@@ -299,103 +592,110 @@ a {
   }
 
   .body {
-    width: 800px;
-    min-height: 700px;
-    background-color: #fff;
-  }
-
-  .contents {
-    width: 800px;
+    width: 575px;
     min-height: 700px;
     background-color: #fff;
   }
 
   .footer {
-    width: 800px;
+    width: 575px;
     min-height: 50px;
     background-color: #000;
-  }
-
-  #dropmenu {
-    position: relative;
-    list-style-type: none;
-    width: 100px;
-    height: 50px;
-    margin: 0px;
-    padding: 0;
-    background: green;
-    border-bottom: 0px solid green;
-    border-radius: 3px 3px 0 0;
-  }
-  #dropmenu li {
-    width: 100px;
-    float: left;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  #dropmenu li a {
-    display: block;
-    margin: 0;
-    padding: 15px 0 11px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 1;
-    text-decoration: none;
-  }
-  #dropmenu li ul {
-    list-style: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    border-radius: 0 0 3px 3px;
-  }
-  #dropmenu li ul li{
-    overflow: hidden;
-    width: 100px;
-    height: 0;
-    color: #fff;
-    -moz-transition: .2s;
-    -webkit-transition: .2s;
-    -o-transition: .2s;
-    -ms-transition: .2s;
-    transition: .2s;
-  }
-  #dropmenu li ul li a{
-    padding: 13px 15px;
-    background: green;
-    text-align: left;
-    font-size: 12px;
-    font-weight: normal;
-  }
-  #dropmenu li:hover > a{
-    background: #6e7c0c;
-    color: #eff7b1;
-  }
-  #dropmenu > li:hover > a{
-    border-radius: 3px 3px 0 0;
-  }
-  #dropmenu li:hover ul li{
-    overflow: visible;
-    height: 38px;
-    border-top: 1px solid green;
-    border-bottom: 1px solid green;
-  }
-  #dropmenu li:hover ul li:first-child{
-    border-top: 0;
-  }
-  #dropmenu li:hover ul li:last-child{
-    border-bottom: 0;
-  }
-  #dropmenu li:hover ul li:last-child a{
-    border-radius: 0 0 3px 3px;
+    color: fff;
   }
 
   .menu {
     width: 100%;
+  }
+
+  .title {
+    width: 200px;
+  }
+
+  .overview {
+    width: 500px;
+    min-height: 150px;
+  }
+
+  .detail {
+    width: 500px;
+    min-height: 300px;
+  }
+
+  .side-bar{
+    display: none;
+    width: 200px;
+    min-height: 300px;
+    float: left;
+    padding: 5px;
+    background-color: #e0ffff;
+  }
+
+  .main-contents {
+    width: 575px;
+    float: left;
+    background-color: #ffffe0;
+  }
+
+  .left-contents{
+    width: 575px;
+    float: left;
+    background-color: #ffffe0;
+  }
+
+  .right-contents {
+    width: 575px;
+    float: left;
+    background-color: #ffffe0;
+  }
+
+  .main_contents{
+    width: 575px;
+    min-height: 300px;
+    float: left;
+    padding: 5px;
+    background-color: #ffffe0;
+  }
+
+  .notes {
+    width: 575px;
+    float: left;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+
+  .note {
+    width: 575px;
+    height: 200px;
+    float: left;
+    background-color: #ffffe0;
+  }
+
+  .note-title {
+    width: 575px;
+    padding: 5px;
+    background-color: #ffffe0;
+  }
+
+  .note-overview {
+    width: 575px;
+    padding: 5px;
+    background-color: #ffffe0;
+  }
+
+  .comment_detail {
+    width: 575px;
+    padding: 5px;
+    min-height: 100px;
+  }
+
+  .page_row {
+    width: 575  px;
+    min-height: 100px;
+  }
+
+  .nav ul li{   
+      display: inline;
   }
 }
 th {

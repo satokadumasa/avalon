@@ -16,42 +16,51 @@
         Celaeno Library
       </a>
     </div>
-    <div class="site_setup">
-      <ul id="dropmenu">
-          <li><a href="#">メニュー</a>
-          <ul>
-            <% if user_signed_in? %>
-              <li>
-                <%= link_to 'Edit Profile', edit_user_profile_path(current_user.user_profile) if current_user.user_profile %>
-                <%= link_to 'Regist Profile', new_user_profile_path unless current_user.user_profile %>
-              </li>
-              <li>
-                <%= link_to 'Edit Setting', edit_user_registration_path %>
-              </li>
-              <li>
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to 'Sign Up', new_user_registration_path %>
-              </li>
-              <li>
-                <%= link_to 'Login', new_user_session_path %>
-              </li>
-            <% end %>
-          </ul>
+
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        メニュー
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to 'Edit Profile', edit_user_profile_path(current_user.user_profile) if current_user.user_profile %>
+          <%= link_to 'Regist Profile', new_user_profile_path unless current_user.user_profile %>
         </li>
+        <li>
+          <%= link_to 'Edit Setting', edit_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'Sign Up', new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to 'Login', new_user_session_path %>
+        </li>
+      <% end %>
       </ul>
     </div>
   </div>
 
   <div class="body">
-    <div class="menu">
-      [<%= link_to 'Top', root_path %>]
-      [<%= link_to 'Notes', notes_path %>]
-      [<%= link_to 'Categories', categories_path %>]
+    <div class="nav nav-tabs">
+      <li class="<%=@active[:top] %>">
+        <%= link_to 'Top', root_path %>
+      </li>
+      <li class="<%=@active[:notes] %>">
+        <%= link_to 'Notes', notes_path %>
+      </li>
+      <li class="<%=@active[:categories] %>">
+        <%= link_to 'Categories', categories_path %>
+      </li>
       <% if user_signed_in? %>
-      [<%= link_to 'Home', home_index_path %>]
+      <li class="<%=@active[:home] %>">
+        <%= link_to 'Home', home_index_path %>
+      </li>
       <% end %>
     </div>
     <div class="contents">
@@ -59,7 +68,7 @@
     </div>
   </div>
   <div class="footer">
-    
+    Celaeno.com Since 2018
   </div>
 </div>
 </body>

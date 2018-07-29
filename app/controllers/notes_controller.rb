@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_active
 
   # GET /notes
   # GET /notes.json
@@ -106,5 +107,9 @@ class NotesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
       params.require(:note).permit(:title, :tag, :overview, :detail, user_notes_attributes: [:id,:user_id, :note_id], note_categories_attributes: [:id, :note_id,:category_id])
+    end
+
+    def set_active
+      @active = {home: "#", notes: "active", pages: "#", categories: "#", top: "#"}
     end
 end

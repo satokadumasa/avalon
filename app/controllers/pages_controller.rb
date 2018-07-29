@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_active
 
   # GET /pages
   # GET /pages.json
@@ -111,5 +112,9 @@ class PagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
       params.require(:page).permit(:title, :tags, :overview, :detail, user_pages_attributes: [:id, :user_id, :page_id], note_pages_attributes: [:id, :note_id, :page_id])
+    end
+
+    def set_active
+      @active = {home: "#", notes: "#", pages: "active", categories: "#", top: "#"}
     end
 end
