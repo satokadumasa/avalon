@@ -50,6 +50,7 @@ class PagesController < ApplicationController
     page_attr = page_params
     page_attr[:tag] = page_params[:tag].split(" ")
     ActiveRecord::Base.transaction do
+      Tag.add_count(tag_names, [])
       @page = Page.new(page_attr)
       logger.debug "PagesController::create() page:" + @page.inspect
       @page.save!
@@ -68,11 +69,12 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
   def update
+    raise "あなたのページではありません。"  unless @page.user_pages[0].user_id == current_user.id
     page_attr = page_params
     page_attr[:tag] = page_params[:tag].split(" ")
-    raise "あなたのページではありません。"  unless @page.user_pages[0].user_id == current_user.id
     ActiveRecord::Base.transaction do
-      @page.update(page_attr)
+     Tag.add_count(tag_names, @page.tag)
+     @page.update(page_attr)
     end
     respond_to do |format|
       format.html { redirect_to :action => "show",:id => @page.id}

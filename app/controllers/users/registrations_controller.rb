@@ -4,6 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protect_from_forgery with: :exception
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  before_action :set_active
 
   # GET /resource/sign_up
   def new
@@ -64,4 +65,8 @@ protected
   def after_inactive_sign_up_path_for(resource)
     super(resource)
   end
+  private
+    def set_active
+      @active = {home: "#", notes: "#", categories: "#", top: "active", users: "#"}
+    end
 end

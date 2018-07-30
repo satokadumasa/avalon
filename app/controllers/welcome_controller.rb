@@ -19,6 +19,6 @@ class WelcomeController < ApplicationController
 
   private
     def set_active
-      @active = {home: "#", notes: "#", categories: "#", top: "active"}
+      @active = {home: "#", notes: "#", categories: "#", top: "active", users: "#"}
     end
 end

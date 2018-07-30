@@ -1,4 +1,4 @@
-<div class="side_bar">
+<div class="side-bar">
   <%= link_to @note.title, @note %><br>
   <ul>
     <% @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |page| %>

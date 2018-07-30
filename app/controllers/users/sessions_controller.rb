@@ -2,6 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
+  before_action :set_active
 
   # GET /resource/sign_in
   def new
@@ -24,4 +25,8 @@ class Users::SessionsController < Devise::SessionsController
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   end
+  private
+    def set_active
+      @active = {home: "#", notes: "#", categories: "#", top: "active", users: "#"}
+    end
 end

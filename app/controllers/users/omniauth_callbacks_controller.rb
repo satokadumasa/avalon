@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  before_action :set_active
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
@@ -40,6 +41,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   private
+    def set_active
+      @active = {home: "#", notes: "#", categories: "#", top: "active", users: "#"}
+    end
 
   def callback_from(provider)
     provider = provider.to_s

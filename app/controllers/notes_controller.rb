@@ -43,8 +43,13 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     note_attr = note_params
-    note_attr[:tag] = note_params[:tag].split(" ")
+    tag_names = note_params[:tag].split(" ")
+    note_attr[:tag] = tag_names
+
+    Tag.add_count(tag_names)
+
     ActiveRecord::Base.transaction do
+      Tag.add_count(tag_names, [])
       @note = Note.new(note_attr)
       raise "ノートの作成ができませんでした。" unless @note.save!
     end
@@ -64,9 +69,11 @@ class NotesController < ApplicationController
   def update
     raise "あなたのノートではありません。"  unless @note.user_notes[0].user_id == current_user.id
     note_attr = note_params
-    note_attr[:tag] = note_params[:tag].split(" ")
+    tag_names = note_params[:tag].split(" ")
+    note_attr[:tag] = tag_names
+
     ActiveRecord::Base.transaction do
-      # raise "ノートの更新ができませんでした。" unless @note.update(note_params)
+      Tag.add_count(tag_names, @note.tag)
       raise "ノートの更新ができませんでした。" unless @note.update_attributes(note_attr)
     end
     respond_to do |format|

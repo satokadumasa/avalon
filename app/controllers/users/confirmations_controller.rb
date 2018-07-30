@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User::ConfirmationsController < Devise::ConfirmationsController
+  before_action :set_active
   # GET /resource/confirmation/new
   def new
     super
@@ -27,4 +28,8 @@ class User::ConfirmationsController < Devise::ConfirmationsController
   def after_confirmation_path_for(resource_name, resource)
     super(resource_name, resource)
   end
+  private
+    def set_active
+      @active = {home: "#", notes: "#", categories: "#", top: "active", users: "#"}
+    end
 end

@@ -31,4 +31,4 @@
 # /config/database.yml
 
 /vendor/*
-/app/assets/javascripts/jquery.ex-code-prettify
+# /app/assets/javascripts/jquery.ex-code-prettify

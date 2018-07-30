@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::UnlocksController < Devise::UnlocksController
+  before_action :set_active
   # GET /resource/unlock/new
   def new
     super
@@ -27,4 +28,8 @@ class Users::UnlocksController < Devise::UnlocksController
   def after_unlock_path_for(resource)
     super(resource)
   end
+  private
+    def set_active
+      @active = {home: "#", notes: "#", categories: "#", top: "active", users: "#"}
+    end
 end
