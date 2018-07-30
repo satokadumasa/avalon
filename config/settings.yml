@@ -3,13 +3,16 @@ development:
   pagenate_count:
     notes: 10
     pages: 10
+    tags: 25
  
 test:
   pagenate_count:
     notes: 10
     pages: 10
+    tags: 25
  
 production:
   pagenate_count:
     notes: 10
     pages: 10
+    tags: 25

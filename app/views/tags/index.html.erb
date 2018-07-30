@@ -6,7 +6,9 @@
   <thead>
     <tr>
       <th>Name</th>
+      <%  if current_user.roles[0].present? && current_user.roles[0].name == "admin" %>
       <th colspan="3"></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -14,14 +16,12 @@
     <% @tags.each do |tag| %>
       <tr>
         <td><%= tag.name %></td>
+        <% if current_user.roles[0].present? && current_user.roles[0].name == "admin" %>
         <td><%= link_to 'Show', tag %></td>
         <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
         <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
-    <% end %>
+      <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Tag', new_tag_path %>

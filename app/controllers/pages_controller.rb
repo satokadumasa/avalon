@@ -117,6 +117,6 @@ class PagesController < ApplicationController
     end
 
     def set_active
-      @active = {home: "#", notes: "#", pages: "active", categories: "#", top: "#"}
+      @active = {home: "#", notes: "#", categories: "active", top: "#", users: "#", tags: "#", user_profiles: "#"}
     end
 end

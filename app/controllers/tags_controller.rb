@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_active
 
   # GET /tags
   # GET /tags.json
@@ -70,5 +71,9 @@ class TagsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
       params.require(:tag).permit(:name)
+    end
+
+    def set_active
+      @active = {home: "#", notes: "#", categories: "#", top: "#", users: "#", tags: "active", user_profiles: "#"}
     end
 end

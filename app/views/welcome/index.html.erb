@@ -1,4 +1,9 @@
       <div class="side-bar">
+        <% if @tags %>
+          <% @tags.each do |tag| %>
+            <%= link_to tag.name, url_for(action: :index, tag: tag.name) %>
+          <% end %>
+        <% end %>
       </div>
       <div class="main-contents">
         <div class="left-contents">

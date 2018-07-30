@@ -117,6 +117,6 @@ class NotesController < ApplicationController
     end
 
     def set_active
-      @active = {home: "#", notes: "active", pages: "#", categories: "#", top: "#"}
+      @active = {home: "#", notes: "active", categories: "#", top: "#", users: "#", tags: "#", user_profiles: "#"}
     end
 end

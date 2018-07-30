@@ -1,10 +1,12 @@
 class UserProfilesController < ApplicationController
   before_action :set_user_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_active
 
   # GET /user_profiles
   # GET /user_profiles.json
   def index
-    @user_profiles = UserProfile.all
+    # @user_profiles = UserProfile.all
+    @user_profiles = UserProfile.paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["notes"]).order("user_profiles.id").all
   end
 
   # GET /user_profiles/1
@@ -86,5 +88,9 @@ class UserProfilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
       params.require(:user_profile).permit(:user_id, :first_name, :last_name, :profile_photo, :pref_code, :postal_code, :address, :self_introduction)
+    end
+
+    def set_active
+      @active = {home: "#", notes: "#", categories: "#", top: "#", users: "#", tags: "#", user_profiles: "active"}
     end
 end

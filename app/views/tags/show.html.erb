@@ -5,5 +5,5 @@
   <%= @tag.name %>
 </p>
 
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+<%= link_to 'Back', tags_path %> | 
+<%= link_to 'Edit', edit_tag_path(@tag) if current_user.roles[0].present? && current_user.roles[0].name == "admin" %>
