@@ -37,6 +37,7 @@ class PagesController < ApplicationController
     @page.user_pages.build
     @page.note_pages[0].note_id = params[:note_id]
     @page.user_pages[0].user_id = current_user.id
+    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
   end
 
   # GET /pages/1/edit
@@ -55,6 +56,9 @@ class PagesController < ApplicationController
       logger.debug "PagesController::create() page:" + @page.inspect
       @page.save!
     end
+
+    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
+
     respond_to do |format|
       format.html { redirect_to :action => "show",:id => @page.id}
       # format.json { render :show, status: :created, location: @page }
@@ -76,6 +80,9 @@ class PagesController < ApplicationController
      Tag.add_count(tag_names, @page.tag)
      @page.update(page_attr)
     end
+
+    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
+
     respond_to do |format|
       format.html { redirect_to :action => "show",:id => @page.id}
       format.json { render :show, status: :ok, location: @page }
@@ -94,6 +101,9 @@ class PagesController < ApplicationController
     ActiveRecord::Base.transaction do
       @page.destroy
     end
+
+    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
+
     respond_to do |format|
       format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
       format.json { head :no_content }
@@ -109,6 +119,7 @@ class PagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_page
       @page = Page.find(params[:id])
+      @description = @page.overview
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
