@@ -1,114 +1,123 @@
-<p id="notice"><%= notice %></p>
-<div class="side-bar">
-  <%= link_to @page.notes[0].title, @page.notes[0] %><br>
-  <ul>
-    <% @pages.each do |page| %>
-    <li>
-      「<%= link_to page.title, url_for(controller: :pages, action: :show, note_id: @page.notes[0].id, id: page.id) %>」<br>
-    </li>
-    <% end %>
-    <div class="nav">
-      <%= will_paginate @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>
+    <div class="side-bar">
+      <%= link_to @page.notes[0].title, @page.notes[0] %><br>
+      <ul>
+        <% @pages.each do |page| %>
+        <li>
+          「<%= link_to page.title, url_for(controller: :pages, action: :show, note_id: @page.notes[0].id, id: page.id) %>」<br>
+        </li>
+        <% end %>
+        <div class="nav">
+          <%= will_paginate @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>
+        </div>
+      </ul>
     </div>
-  </ul>
-</div>
-<div class="main_contents">
-  <h1>「<%= @page.title %>」</h1>
-  <% if @page.user_pages[0].user.user_profile %>
-  [<%=link_to @page.user_pages[0].user.username, url_for(controller: :user_profiles, action: :show, id: @page.user_pages[0].user.user_profile.id) %>]
-  <% else %>
-  <%=@page.user_pages[0].user.username %>
-  <% end %>
-  <%=@page.created_at %><br>
-  <% if current_user && @page.users[0].id == current_user.id %>
-  <%= link_to 'Edit', url_for(controller: :pages, action: :edit, id: @page.id, note_id: @page.note_pages[0].page_id) %>|
-  <% end %>
-  <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %> | 
-  <a href="https://twitter.com/share?url=<%=URI.escape("https://www.celaeno.site/notes/#{@page.note_pages[0].note_id}/pages/#{@page.id}") %>&via=susanoo&text=<%= @page.title %><%=@page.overview[0, 80] %>&lang=ja&rel=nofollow" target="_blank">
-  Tweet
-  </a>
-  <hr>
-  <br>
-  <% if @tags %>
-    <% @tags.each do |tag| %>
-      <%= link_to tag, url_for(action: :index, tag: tag) %>
-    <% end %>
-  <% end %>
-  <br>
-  <hr>
-  <p>
-    <%= simple_format Coderay(tag_convert(@page.overview)) %>
-  </p>
-  <hr>
-  <%= simple_format tag_convert(@page.detail) %>
-  <!--Page Comment Start-->
-  <% if current_user %>
-    <%= form_with(model: @pagecomment , local: true) do |form| %>
-      <% if @pagecomment.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@pagecomment.errors.count, "error") %> prohibited this pagecomment from being saved:</h2>
-          <ul>
-            <% @pagecomment.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+    <div class="main-contents">
+      <!-- note-contents -->
+      <div class="note-contents">
+        <!-- note-header -->
+        <div class="note-header">
+          <h1>「<%= @page.title %>」</h1>
+          <% if @page.user_pages[0].user.user_profile %>
+          [<%=link_to @page.user_pages[0].user.username, url_for(controller: :user_profiles, action: :show, id: @page.user_pages[0].user.user_profile.id) %>]
+          <% else %>
+          <%=@page.user_pages[0].user.username %>
+          <% end %>
+          <%=@page.created_at %><br>
+          <% if current_user && @page.users[0].id == current_user.id %>
+          <%= link_to 'Edit', url_for(controller: :pages, action: :edit, id: @page.id, note_id: @page.note_pages[0].page_id) %>|
+          <% end %>
+          <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %> | 
+          <a href="https://twitter.com/share?url=<%=URI.escape("https://www.celaeno.site/notes/#{@page.note_pages[0].note_id}/pages/#{@page.id}") %>&via=susanoo&text=<%= @page.title %><%=@page.overview[0, 80] %>&lang=ja&rel=nofollow" target="_blank">
+          Tweet
+          </a>
+          <hr>
+          <br>
+          <% if @tags %>
+            <% @tags.each do |tag| %>
+              <%= link_to tag, url_for(action: :index, tag: tag) %>
             <% end %>
-          </ul>
+          <% end %>
+          <br>
+          <hr>
         </div>
-      <% end %>
-
-      <div class="field">
-        <%= form.label :title %>
-        <%= form.text_field :title, class: "title" %>
+        <!-- note-overview -->
+        <div class="note-overview">
+          <hr>
+          <%= simple_format Coderay(tag_convert(@page.overview)) %>
+        </div>
+        <!-- /note-overview -->
+        <!-- /note-detail -->
+        <div class="note-detail">
+          <hr>
+          <%= simple_format tag_convert(@page.detail) %>
+        </div>
       </div>
+      <div class="comments">
+        <% if current_user %>
+          <%= form_with(model: @pagecomment , local: true) do |form| %>
+            <% if @pagecomment.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@pagecomment.errors.count, "error") %> prohibited this pagecomment from being saved:</h2>
+                <ul>
+                  <% @pagecomment.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
 
-      <div class="field">
-        <%= form.label :detail %>
-        <%= form.text_area :detail, class: "comment_detail" %>
-      </div>
+            <div class="field">
+              <%= form.label :title %>
+              <%= form.text_field :title, class: "title" %>
+            </div>
 
-      <div class="actions">
-        <% @pagecomment.user_pagecomments.each do |user_pagecomments| %>
-          <%= form.fields_for :user_pagecomments, user_pagecomments do | user_pagecomments| %>
-            <%= user_pagecomments.hidden_field :id %>
-            <%= user_pagecomments.hidden_field :user_id %>
-            <%= user_pagecomments.hidden_field :pagecomment_id %>
+            <div class="field">
+              <%= form.label :detail %>
+              <%= form.text_area :detail, class: "comment_detail" %>
+            </div>
+
+            <div class="actions">
+              <% @pagecomment.user_pagecomments.each do |user_pagecomments| %>
+                <%= form.fields_for :user_pagecomments, user_pagecomments do | user_pagecomments| %>
+                  <%= user_pagecomments.hidden_field :id %>
+                  <%= user_pagecomments.hidden_field :user_id %>
+                  <%= user_pagecomments.hidden_field :pagecomment_id %>
+                <% end %>
+              <% end %>
+              <% @pagecomment.pagecomment_pages.each do |pagecomment_pages| %>
+                <%= form.fields_for :pagecomment_pages, pagecomment_pages do | pagecomment_pages| %>
+                  <%= pagecomment_pages.hidden_field :id %>
+                  <%= pagecomment_pages.hidden_field :page_id %>
+                  <%= pagecomment_pages.hidden_field :pagecomment_id %>
+                <% end %>
+              <% end %>
+              <%= form.submit %>
+            </div>
           <% end %>
         <% end %>
-        <% @pagecomment.pagecomment_pages.each do |pagecomment_pages| %>
-          <%= form.fields_for :pagecomment_pages, pagecomment_pages do | pagecomment_pages| %>
-            <%= pagecomment_pages.hidden_field :id %>
-            <%= pagecomment_pages.hidden_field :page_id %>
-            <%= pagecomment_pages.hidden_field :pagecomment_id %>
+        <!--Page Comment Start-->
+        <div class="comment">
+          <% @page.pagecomments.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |pagecomment| %>
+            <hr>
+            <div class="page_row">
+              <div style="float: left;width: 600px;">
+                <div style="font-size: 20px; float: left;">
+                  <%=pagecomment.title %>
+                </div>
+                <div style="font-size: 10px; float: left;">
+                  [<%=pagecomment.user_pagecomments[0].user.username %>]
+                  <%=pagecomment.created_at %>
+                </div>
+              </div>
+              <div style="width: 600px;">
+                <%= simple_format pagecomment.detail %>
+              </div>
+            </div>
           <% end %>
-        <% end %>
-        <%= form.submit %>
-      </div>
-    <% end %>
-  <% end %>
-  <div>
-    <% @page.pagecomments.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |pagecomment| %>
-      <hr>
-      <div class="page_row">
-        <div style="float: left;width: 600px;">
-          <div style="font-size: 20px; float: left;">
-            <%=pagecomment.title %>
-          </div>
-          <div style="font-size: 10px; float: left;">
-            [<%=pagecomment.user_pagecomments[0].user.username %>]
-            <%=pagecomment.created_at %>
-          </div>
         </div>
-        <div style="width: 600px;">
-          <%= simple_format pagecomment.detail %>
-        </div>
+        <!--Page Comment End-->
       </div>
-    <% end %>
-  </div>
-  <!--Page Comment End-->
-  <div class="nav">
-  <%= will_paginate @page.pagecomments.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>
-  </div>
-  <% if current_user && @page.users[0].id == current_user.id %>
-  <%= link_to 'Edit', url_for(controller: :pages, action: :edit, id: @page.id, note_id: @page.note_pages[0].page_id) %>|
-  <% end %>
-  <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %>
-</div>
+      <div class="nav">
+      <%= will_paginate @page.pagecomments.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>
+      </div>
+    </div>
