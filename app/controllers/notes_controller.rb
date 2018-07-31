@@ -10,13 +10,14 @@ class NotesController < ApplicationController
       @notes = @notes.where("notes.tag LIKE ? ", "%#{params[:tag]}%") 
     end
     @notes.all
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
   end
 
   # GET /notes/1
   # GET /notes/1.json
   def show
     @title = @note.title
+    @content_title=@note.title
+    @content_overview=@note.overview
     @tags = @note.tag
     @pages = Page.joins(:notes).where("notes.id = #{params[:id]}").paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["notes"]).order("pages.id").all
 
@@ -34,13 +35,11 @@ class NotesController < ApplicationController
     @note.user_notes.build
     @note.note_categories.build
     @note.user_notes[0].user_id = current_user.id
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
   end
 
   # GET /notes/1/edit
   def edit
     raise "あなたのノートではありません。"  unless @note.user_notes[0].user_id == current_user.id
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
   end
 
   # POST /notes
@@ -55,8 +54,6 @@ class NotesController < ApplicationController
       @note = Note.new(note_attr)
       raise "ノートの作成ができませんでした。" unless @note.save!
     end
-
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
 
     respond_to do |format|
       format.html { redirect_to @note, notice: 'Note was successfully created.' }
@@ -82,8 +79,6 @@ class NotesController < ApplicationController
       raise "ノートの更新ができませんでした。" unless @note.update_attributes(note_attr)
     end
 
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
-
     respond_to do |format|
       format.html { redirect_to @note, notice: 'Note was successfully updated.' }
       format.json { render :show, status: :ok, location: @note }
@@ -102,8 +97,6 @@ class NotesController < ApplicationController
     ActiveRecord::Base.transaction do
       @note.destroy
     end
-
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
 
     respond_to do |format|
       format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }

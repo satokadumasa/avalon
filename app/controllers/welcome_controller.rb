@@ -18,7 +18,6 @@ class WelcomeController < ApplicationController
     @tags = Tag.order("cnt DESC").limit(APP_CONFIG["pagenate_count"]["pages"])
     
     @active = {home: "#", notes: "#", pages: "#", top: "active"}
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
   end
 
   private

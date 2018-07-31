@@ -16,6 +16,8 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     @title = @page.title
+    @content_title=@page.title
+    @content_overview=@page.overview
     @tags = @page.tag || [""]
     logger.debug "PagesController::show() params:" + params.inspect
     @page = Page.find(params[:id])
@@ -37,7 +39,6 @@ class PagesController < ApplicationController
     @page.user_pages.build
     @page.note_pages[0].note_id = params[:note_id]
     @page.user_pages[0].user_id = current_user.id
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
   end
 
   # GET /pages/1/edit
@@ -59,8 +60,6 @@ class PagesController < ApplicationController
       logger.debug "PagesController::create() page:" + @page.inspect
       @page.save!
     end
-
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
 
     respond_to do |format|
       format.html { redirect_to :action => "show",:id => @page.id}
@@ -87,8 +86,6 @@ class PagesController < ApplicationController
      @page.update(page_attr)
     end
 
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
-
     respond_to do |format|
       format.html { redirect_to :action => "show",:id => @page.id}
       format.json { render :show, status: :ok, location: @page }
@@ -107,8 +104,6 @@ class PagesController < ApplicationController
     ActiveRecord::Base.transaction do
       @page.destroy
     end
-
-    @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
 
     respond_to do |format|
       format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
