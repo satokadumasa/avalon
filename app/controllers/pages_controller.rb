@@ -49,7 +49,10 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     page_attr = page_params
-    page_attr[:tag] = page_params[:tag].split(" ")
+    # page_attr[:tag] = page_params[:tag].split(" ")
+    tag_names = page_params[:tag].split(" ")
+    page_attr[:tag] = tag_names
+
     ActiveRecord::Base.transaction do
       Tag.add_count(tag_names, [])
       @page = Page.new(page_attr)
@@ -75,7 +78,10 @@ class PagesController < ApplicationController
   def update
     raise "あなたのページではありません。"  unless @page.user_pages[0].user_id == current_user.id
     page_attr = page_params
-    page_attr[:tag] = page_params[:tag].split(" ")
+    # page_attr[:tag] = page_params[:tag].split(" ")
+    tag_names = page_params[:tag].split(" ")
+    page_attr[:tag] = tag_names
+
     ActiveRecord::Base.transaction do
      Tag.add_count(tag_names, @page.tag)
      @page.update(page_attr)
