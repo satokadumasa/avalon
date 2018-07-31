@@ -84,7 +84,6 @@
       </div>
     <% end %>
   <% end %>
-  <hr>
   <div>
     <% @page.pagecomments.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |pagecomment| %>
       <hr>
@@ -104,7 +103,6 @@
       </div>
     <% end %>
   </div>
-  <hr>
   <!--Page Comment End-->
   <div class="nav">
   <%= will_paginate @page.pagecomments.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>

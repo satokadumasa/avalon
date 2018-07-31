@@ -84,20 +84,17 @@ a {
 
 .body {
   width: 1200px;
-  min-height: 700px;
   background-color: #fff;
 }
 
 .contents {
   width: 1200px;
-  min-height: 700px;
-  overflow: hidden;
   background-color: #fff;
 }
 
 .footer {
   width: 1200px;
-  min-height: 50px;
+  height: 50px;
   background-color: #191970;
   color: fff;
 }
@@ -141,9 +138,19 @@ a {
   margin: 1px;
   background-color: #ffffe0;
 }
-.main_contents{
-  width: 800px;
-  max-height: 300px;
+
+.bookmark{
+  width: 990px;
+  height: 50px;
+  float: left;
+  padding: 5px;
+  background-color: #ffffe0;
+  
+}
+
+.main-contents{
+  width: 1000px;
+  min-height: 0px;
   float: left;
   padding: 5px;
   background-color: #ffffe0;
@@ -154,7 +161,6 @@ a {
   float: left;
   margin: 1px;
   background-color: #ffffff;
-  overflow: hidden;
 }
 
 .note {
@@ -172,16 +178,38 @@ a {
   background-color: #ffffe0;
 }
 
+.note-contents {
+  width: 990px;
+  height: auto;
+  padding: 2px;
+  background-color: #ffffe0;
+}
+
+.note-header{
+  width: 986px;
+  height: auto;
+  padding: 2px;
+  background-color: #ffffe0;
+}
+
 .note-overview {
-  width: 492px;
-  padding: 5px;
-  margin: 1px;
+  width: 986px;
+  min-height: 100px;
+  padding: 2px;
+  background-color: #ffffe0;
+}
+
+.note-detail {
+  width: 986px;
+  min-height: 100px;
+  padding: 2px;
   background-color: #ffffe0;
 }
 
 .comment_detail {
   width: 400px;
   min-height: 100px;
+  padding: 2px;
 }
 
 .page_row {
@@ -196,7 +224,6 @@ a {
 @media screen and ( max-width:1200px ){
   .body {
     width: 990px;
-    min-height: 700px;
     background-color: #fff;
   }
 
@@ -209,8 +236,6 @@ a {
 
   .contents {
     width: 990px;
-    min-height: 700px;
-    overflow: hidden;
     background-color: #fff;
   }
 
@@ -274,7 +299,6 @@ a {
     float: left;
     margin: 1px;
     background-color: #ffffff;
-    overflow: hidden;
   }
 
   .note {
@@ -317,7 +341,6 @@ a {
 @media screen and ( max-width:991px ){
   .body {
     width: 767px;
-    min-height: 700px;
     background-color: #fff;
   }
 
@@ -330,7 +353,6 @@ a {
 
   .contents {
     width: 767px;
-    min-height: 700px;
     float: left;
     background-color: #fff;
   }
@@ -394,7 +416,6 @@ a {
     float: left;
     margin: 1px;
     background-color: #ffffff;
-    overflow: hidden;
   }
 
   .note {
@@ -437,7 +458,6 @@ a {
 @media screen and ( max-width:767px ){
   .body {
     width: 570px;
-    min-height: 700px;
     background-color: #fff;
   }
 
@@ -450,8 +470,6 @@ a {
 
   .contents {
     width: 570px;
-    min-height: 700px;
-    overflow: hidden;
     background-color: #fff;
   }
 
@@ -510,7 +528,6 @@ a {
     float: left;
     margin: 1px;
     background-color: #ffffff;
-    overflow: hidden;
   }
 
   .note {
@@ -593,7 +610,6 @@ a {
 
   .body {
     width: 575px;
-    min-height: 700px;
     background-color: #fff;
   }
 
@@ -661,7 +677,6 @@ a {
     width: 575px;
     float: left;
     background-color: #ffffff;
-    overflow: hidden;
   }
 
   .note {

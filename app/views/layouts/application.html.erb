@@ -59,33 +59,41 @@
     </div>
   </div>
 
+  <!-- body -->
   <div class="body">
+    <!-- nav-tabs -->
     <div class="nav nav-tabs">
-      <li class="<%=@active[:top] %>">
-        <%= link_to 'Top', root_path %>
-      </li>
-      <li class="<%=@active[:notes] %>">
-        <%= link_to 'Notes', notes_path %>
-      </li>
-      <li class="<%=@active[:categories] %>">
-        <%= link_to 'Categories', categories_path %>
-      </li>
-      <li class="<%=@active[:tags] %>">
-        <%= link_to 'Tags', tags_path %>
-      </li>
-      <li class="<%=@active[:user_profiles] %>">
-        <%= link_to 'User Profiles', user_profiles_path %>
-      </li>
-      <% if user_signed_in? %>
-      <li class="<%=@active[:home] %>">
-        <%= link_to 'Home', home_index_path %>
-      </li>
-      <% end %>
+      <ul>
+        <li class="<%=@active[:top] %>">
+          <%= link_to 'Top', root_path %>
+        </li>
+        <li class="<%=@active[:notes] %>">
+          <%= link_to 'Notes', notes_path %>
+        </li>
+        <li class="<%=@active[:categories] %>">
+          <%= link_to 'Categories', categories_path %>
+        </li>
+        <li class="<%=@active[:tags] %>">
+          <%= link_to 'Tags', tags_path %>
+        </li>
+        <li class="<%=@active[:user_profiles] %>">
+          <%= link_to 'User Profiles', user_profiles_path %>
+        </li>
+        <% if user_signed_in? %>
+        <li class="<%=@active[:home] %>">
+          <%= link_to 'Home', home_index_path %>
+        </li>
+        <% end %>
+      </ul>
     </div>
+    <!-- /nav-tabs -->
+    <!-- contents -->
     <div class="contents">
 <%= yield %>
     </div>
+    <!-- /contents -->
   </div>
+  <!-- /body -->
   <div class="footer">
     Celaeno.com Since 2018
   </div>

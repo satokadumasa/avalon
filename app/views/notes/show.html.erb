@@ -1,36 +1,37 @@
-<div class="side-bar">
-  <%= link_to @note.title, @note %><br>
-  <ul>
-    <% @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |page| %>
-    <li>
-      「<%= link_to page.title, url_for(controller: :pages, action: :show, note_id: @note.id, id: page.id) %>」<br>
-    </li>
-    <% end %>
-  </ul>
-  <div class="nav">
-    <%= will_paginate @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>
-  </div>
-</div>
-<div class="main_contents">
-  <div>
-    <div>
-      <% if current_user %> 
-        <% if @bookmarked.count > 0 && @bookmarked[0].user_id == current_user.id %>
-          <%= link_to 'Remove bookmark', @bookmarked[0], method: :delete %>
-        <% elsif %>
-          <%= form_with(model: @bookmark, local: true) do |form| %>
-            <%= form.hidden_field :user_id %>
-            <%= form.hidden_field :note_id %>
-            <%= form.submit %>
-          <% end %>
+    <div class="side-bar">
+      <%= link_to @note.title, @note %><br>
+      <ul>
+        <% @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).each do |page| %>
+        <li>
+          「<%= link_to page.title, url_for(controller: :pages, action: :show, note_id: @note.id, id: page.id) %>」<br>
+        </li>
         <% end %>
-      <% end %>
+      </ul>
+      <div class="nav">
+        <%= will_paginate @pages.paginate(page: params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]), :renderer => BootstrapPagination::Rails %>
+      </div>
     </div>
-  </div>
-  <br>
-  <div>
-    <div class="page_row">
-      <div style="float: left;width: 600px;">
+    <!-- main-contents -->
+    <div class="main-contents">
+      <!-- note-contents -->
+      <div class="note-contents">
+        <!-- bookmark -->
+        <div class="bookmark">
+          <% if current_user %> 
+            <% if @bookmarked.count > 0 && @bookmarked[0].user_id == current_user.id %>
+              <%= link_to 'Remove bookmark', @bookmarked[0], method: :delete %>
+            <% elsif %>
+              <%= form_with(model: @bookmark, local: true) do |form| %>
+                <%= form.hidden_field :user_id %>
+                <%= form.hidden_field :note_id %>
+                <%= form.submit %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        <!-- /bookmark -->
+        <!-- note-header -->
+        <div class="note-header">
           <h1>「<%= @note.title %>」</h1>
           <% if @note.user_notes[0].user.user_profile %>
           [<%= link_to @note.user_notes[0].user.username, user_profile_path(@note.user_notes[0].user.user_profile) %>] 
@@ -38,39 +39,41 @@
           [<%=@note.user_notes[0].user.username %>]
           <% end %>
           <%= @note.created_at %> 
+          <% if current_user && @note.user_notes[0].user.id == current_user.id %>
+          <%= link_to 'New Page', url_for(controller: :pages, action: :new, note_id: @note.id) %>|
+          <% end %>
+          <% if current_user && (current_user.has_role?(:admin) || @note.user_notes[0].user.id == current_user.id) %>
+          <%= link_to 'Edit', edit_note_path(@note) %> |
+          <% end %>
+          <%= link_to 'Back', notes_path %> | 
+          <a href="https://twitter.com/share?url=<%=URI.escape("https://www.celaeno.site/notes/#{@note.id}/") %>&via=susanoo&text=<%= @note.title %><%=@note.overview[0, 80] %>&lang=ja&rel=nofollow" target="_blank">Tweet</a>
+          <hr>
+          <% if @tags %>
+            <% @tags.each do |tag| %>
+              <%= link_to tag, url_for(action: :index, tag: tag) %>
+            <% end %>
+          <% end %>
+        </div>
+        <!-- /note-header -->
+        <!-- note-overview -->
+        <div class="note-overview">
+          <%= simple_format Coderay(tag_convert(@note.overview)) %>
+        </div>
+        <!-- /note-overview -->
+        <!-- /note-detail -->
+        <div class="note-detail">
+          <hr>
+          <%= simple_format tag_convert(@note.detail) %>
+        </div>
+        <!-- /note-detail -->
       </div>
-      <br>
-      <br>
+      <!-- /note-contents -->
       <% if current_user && @note.user_notes[0].user.id == current_user.id %>
       <%= link_to 'New Page', url_for(controller: :pages, action: :new, note_id: @note.id) %>|
       <% end %>
       <% if current_user && (current_user.has_role?(:admin) || @note.user_notes[0].user.id == current_user.id) %>
       <%= link_to 'Edit', edit_note_path(@note) %> |
       <% end %>
-      <%= link_to 'Back', notes_path %> | 
-      <a href="https://twitter.com/share?url=<%=URI.escape("https://www.celaeno.site/notes/#{@note.id}/") %>&via=susanoo&text=<%= @note.title %><%=@note.overview[0, 80] %>&lang=ja&rel=nofollow" target="_blank">Tweet</a>
-      <hr>
-      <br>
-      <% if @tags %>
-        <% @tags.each do |tag| %>
-          <%= link_to tag, url_for(action: :index, tag: tag) %>
-        <% end %>
-      <% end %>
-      <br>
-      <hr>
-      <div style="width: 600px;font-size: 9px;">
-        <%= simple_format Coderay(tag_convert(@note.overview)) %>
-      </div>
-      <hr>
-      <%= simple_format tag_convert(@note.detail) %>
+      <%= link_to 'Back', notes_path %>
     </div>
-  </div>
-  <br>
-  <% if current_user && @note.user_notes[0].user.id == current_user.id %>
-  <%= link_to 'New Page', url_for(controller: :pages, action: :new, note_id: @note.id) %>|
-  <% end %>
-  <% if current_user && (current_user.has_role?(:admin) || @note.user_notes[0].user.id == current_user.id) %>
-  <%= link_to 'Edit', edit_note_path(@note) %> |
-  <% end %>
-  <%= link_to 'Back', notes_path %>
-</div>
+    <!-- /main-contents -->
