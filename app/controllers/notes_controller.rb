@@ -50,7 +50,6 @@ class NotesController < ApplicationController
     tag_names = note_params[:tag].split(" ")
     note_attr[:tag] = tag_names
 
-    Tag.add_count(tag_names)
     ActiveRecord::Base.transaction do
       Tag.add_count(tag_names, [])
       @note = Note.new(note_attr)
