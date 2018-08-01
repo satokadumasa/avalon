@@ -52,7 +52,7 @@ a {
 
 .header {
   width: 1200px;
-  min-height: 50px;
+  height: 50px;
   background-color: #191970;
   color: fff;
 }
@@ -84,11 +84,14 @@ a {
 
 .body {
   width: 1200px;
+  min-height: 700px;
+  overflow: auto;
   background-color: #fff;
 }
 
 .contents {
   width: 1200px;
+  min-height: 700px;
   background-color: #fff;
 }
 
@@ -128,14 +131,14 @@ a {
 .left-contents{
   width: 496px;
   float: left;
-  margin: 1px;
+  padding: 1px;
   background-color: #ffffe0;
 }
 
 .right-contents {
   width: 496px;
   float: left;
-  margin: 1px;
+  padding: 1px;
   background-color: #ffffe0;
 }
 
@@ -150,7 +153,7 @@ a {
 
 .main-contents{
   width: 1000px;
-  min-height: 0px;
+  min-height: 700px;
   float: left;
   padding: 1px;
   background-color: #ffffe0;
@@ -230,6 +233,8 @@ a {
 @media screen and ( max-width:1200px ){
   .body {
     width: 990px;
+    min-heiht: 700px;
+    overflow: auto;
     background-color: #fff;
   }
 
@@ -238,6 +243,14 @@ a {
     min-height: 50px;
     background-color: #191970;
     color: fff;
+  }
+
+  .site_title {
+    width: 700px;
+    min-height: 50px;
+    float: left;
+    font-size: 20px;
+    vertical-align: middle;
   }
 
   .contents {
@@ -281,23 +294,22 @@ a {
   .left-contents{
     width: 393px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .right-contents {
     width: 393px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
-  .main_contents{
+  .main-contents{
     width: 790px;
-    min-height: 300px;
+    min-height: 700px;
     float: left;
     padding: 1px;
-    margin: 1px;
     background-color: #ffffe0;
   }
 
@@ -344,13 +356,6 @@ a {
     background-color: #ffffe0;
   }
 
-  .note-overview {
-    width: 786px;
-    min-height: 100px;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
   .note-detail {
     width: 786px;
     min-height: 100px;
@@ -383,6 +388,8 @@ a {
 @media screen and ( max-width:991px ){
   .body {
     width: 767px;
+    min-heiht: 700px;
+    overflow: auto;
     background-color: #fff;
   }
 
@@ -391,6 +398,14 @@ a {
     min-height: 50px;
     background-color: #191970;
     color: fff;
+  }
+
+  .site_title {
+    width: 400px;
+    min-height: 50px;
+    float: left;
+    font-size: 20px;
+    vertical-align: middle;
   }
 
   .contents {
@@ -435,28 +450,28 @@ a {
   .main-contents {
     width: 570px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .left-contents{
     width: 568px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .right-contents {
     width: 568px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .notes {
     width: 566px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffff;
   }
 
@@ -464,21 +479,21 @@ a {
     width: 564px;
     height: 200px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-title {
     width: 562px;
     padding: 5px;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-overview {
     width: 562px;
     padding: 5px;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
@@ -535,6 +550,8 @@ a {
 @media screen and ( max-width:767px ){
   .body {
     width: 570px;
+    min-heiht: 700px;
+    overflow: auto;
     background-color: #fff;
   }
 
@@ -543,6 +560,14 @@ a {
     min-height: 50px;
     background-color: #191970;
     color: fff;
+  }
+
+  .site_title {
+    width: 300px;
+    min-height: 50px;
+    float: left;
+    font-size: 20px;
+    vertical-align: middle;
   }
 
   .contents {
@@ -582,28 +607,28 @@ a {
   .main-contents {
     width: 568px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .left-contents{
     min-width: 566px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .right-contents {
     min-width: 566px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .notes {
     max-width: 564px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffff;
   }
 
@@ -611,21 +636,21 @@ a {
     max-width: 562px;
     height: 200px;
     float: left;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-title {
     max-width: 562px;
     padding: 5px;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-overview {
     min-width: 562px;
     padding: 5px;
-    margin: 1px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
@@ -725,6 +750,8 @@ a {
 
   .body {
     width: 575px;
+    min-heiht: 700px;
+    overflow: auto;
     background-color: #fff;
   }
 
@@ -765,32 +792,28 @@ a {
   .main-contents {
     width: 575px;
     float: left;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .left-contents{
     width: 575px;
     float: left;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .right-contents {
     width: 575px;
     float: left;
-    background-color: #ffffe0;
-  }
-
-  .main_contents{
-    width: 575px;
-    min-height: 300px;
-    float: left;
-    padding: 5px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .notes {
     width: 575px;
     float: left;
+    padding: 1px;
     background-color: #ffffff;
   }
 
@@ -798,18 +821,19 @@ a {
     width: 575px;
     height: 200px;
     float: left;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-title {
     width: 575px;
-    padding: 5px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-overview {
     width: 575px;
-    padding: 5px;
+    padding: 1px;
     background-color: #ffffe0;
   }
 
