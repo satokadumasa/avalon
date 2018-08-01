@@ -291,11 +291,12 @@ a {
     margin: 1px;
     background-color: #ffffe0;
   }
+
   .main_contents{
-    width: 588px;
+    width: 790px;
     min-height: 300px;
     float: left;
-    padding: 5px;
+    padding: 1px;
     margin: 1px;
     background-color: #ffffe0;
   }
@@ -329,9 +330,44 @@ a {
     background-color: #ffffe0;
   }
 
-  .comment_detail {
-    width: 400px;
+  .note-contents {
+    width: 788px;
+    height: auto;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-header{
+    width: 786px;
+    height: auto;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-overview {
+    width: 786px;
     min-height: 100px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-detail {
+    width: 786px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .comments{
+    width: 786px;
+    min-height: 100px;
+    padding: 2px;
+    background-color: #fff;
+  }
+  .comment_detail {
+    width: 700px;
+    min-height: 100px;
+    padding: 2px;
   }
 
   .page_row {
@@ -446,9 +482,44 @@ a {
     background-color: #ffffe0;
   }
 
-  .comment_detail {
-    width: 400px;
+  .note-contents {
+    width: 568px;
+    height: auto;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-header{
+    width: 566px;
+    height: auto;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-overview {
+    width: 566px;
     min-height: 100px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-detail {
+    width: 566px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .comments{
+    width: 566px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #fff;
+  }
+  .comment_detail {
+    width: 500px;
+    min-height: 100px;
+    padding: 1px;
   }
 
   .page_row {
@@ -558,10 +629,48 @@ a {
     background-color: #ffffe0;
   }
 
-  .comment_detail {
-    width: 570px;
-    min-height: 100px;
+
+  .note-contents {
+    width: 568px;
+    height: auto;
+    padding: 1px;
+    background-color: #ffffe0;
   }
+
+  .note-header{
+    width: 566px;
+    height: auto;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-overview {
+    width: 566px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-detail {
+    width: 566px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .comments{
+    width: 566px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #fff;
+  }
+  .comment_detail {
+    width: 500px;
+    min-height: 100px;
+    padding: 1px;
+  }
+
+
 
   .page_row {
       width: 570px;
@@ -704,10 +813,44 @@ a {
     background-color: #ffffe0;
   }
 
-  .comment_detail {
-    width: 575px;
-    padding: 5px;
+  .note-contents {
+    width: 568px;
+    height: auto;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-header{
+    width: 566px;
+    height: auto;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-overview {
+    width: 566px;
     min-height: 100px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-detail {
+    width: 566px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .comments{
+    width: 566px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #fff;
+  }
+  .comment_detail {
+    width: 500px;
+    min-height: 100px;
+    padding: 1px;
   }
 
   .page_row {
