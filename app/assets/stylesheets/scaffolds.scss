@@ -563,7 +563,7 @@ a {
   }
 
   .site_title {
-    width: 300px;
+    width: 150px;
     min-height: 50px;
     float: left;
     font-size: 20px;
@@ -601,7 +601,11 @@ a {
   }
 
   .side-bar{
-    display: none;
+    width: 150px;
+    min-height: 300px;
+    float: left;
+    padding: 5px;
+    background-color: #fff;
   }
 
   .main-contents {
@@ -707,24 +711,24 @@ a {
   }
 }
 
-@media screen and ( max-width:575px )
+@media screen and ( max-width:750px )
 {
   .document_root{
-    width: 575px;
+    width: 745px;
     min-height: 800px;
     margin: 0 auto;
     background-color: white;
   }
 
   .header {
-    width: 575px;
+    width: 745px;
     min-height: 50px;
     background-color: #000;
     color: fff;
   }
 
   .site_title {
-    width: 575px;
+    width: 745px;
     min-height: 50px;
     float: left;
     font-size: 20px;
@@ -749,14 +753,20 @@ a {
   }
 
   .body {
-    width: 575px;
+    width: 745px;
     min-heiht: 700px;
     overflow: auto;
     background-color: #fff;
   }
 
+  .contents {
+    width: 745px;
+    min-height: 700px;
+    background-color: #fff;
+  }
+
   .footer {
-    width: 575px;
+    width: 745px;
     min-height: 50px;
     background-color: #000;
     color: fff;
@@ -771,18 +781,17 @@ a {
   }
 
   .overview {
-    width: 500px;
+    width: 745px;
     min-height: 150px;
   }
 
   .detail {
-    width: 500px;
+    width: 745px;
     min-height: 300px;
   }
 
   .side-bar{
-    display: none;
-    width: 200px;
+    width: 145px;
     min-height: 300px;
     float: left;
     padding: 5px;
@@ -790,35 +799,35 @@ a {
   }
 
   .main-contents {
-    width: 575px;
+    width: 598px;
     float: left;
     padding: 1px;
     background-color: #ffffe0;
   }
 
   .left-contents{
-    width: 575px;
+    width: 596px;
     float: left;
     padding: 1px;
     background-color: #ffffe0;
   }
 
   .right-contents {
-    width: 575px;
+    width: 596px;
     float: left;
     padding: 1px;
     background-color: #ffffe0;
   }
 
   .notes {
-    width: 575px;
+    width: 594px;
     float: left;
     padding: 1px;
     background-color: #ffffff;
   }
 
   .note {
-    width: 575px;
+    width: 592px;
     height: 200px;
     float: left;
     padding: 1px;
@@ -826,53 +835,53 @@ a {
   }
 
   .note-title {
-    width: 575px;
+    width: 590px;
     padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-overview {
-    width: 575px;
+    width: 590px;
     padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-contents {
-    width: 568px;
+    width: 590px;
     height: auto;
     padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-header{
-    width: 566px;
+    width: 590px;
     height: auto;
     padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-overview {
-    width: 566px;
+    width: 590px;
     min-height: 100px;
     padding: 1px;
     background-color: #ffffe0;
   }
 
   .note-detail {
-    width: 566px;
+    width: 590px;
     min-height: 100px;
     padding: 1px;
     background-color: #ffffe0;
   }
 
   .comments{
-    width: 566px;
+    width: 590px;
     min-height: 100px;
     padding: 1px;
     background-color: #fff;
   }
   .comment_detail {
-    width: 500px;
+    width: 590px;
     min-height: 100px;
     padding: 1px;
   }
