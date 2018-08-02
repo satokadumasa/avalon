@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <% note.user_notes.each do |user_note| %>
     <%= form.fields_for :user_notes, user_note do | user_note_field| %>
       <%= user_note_field.hidden_field :id %>
@@ -19,31 +18,33 @@
     <% end %>
   <% end %>
 
-  <% note.note_categories.each do |note_category| %>
-    <%= form.fields_for :note_categories, note_category do | note_category_field| %>
-      <%= note_category_field.hidden_field :id %>
-      <%= note_category_field.hidden_field :category_id %>
-      <%= note_category_field.collection_select :category_id, Category.all, :id, :name %>
-    <% end %>
-  <% end %>
-
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title, {class: 'form_label'} %>
     <%= form.text_field :title, class: "title" %>
   </div>
 
   <div class="field">
-    <%= form.label :tag %>
+    <%= form.label :category, {class: 'form_label'} %>
+    <% note.note_categories.each do |note_category| %>
+      <%= form.fields_for :note_categories, note_category do | note_category_field| %>
+        <%= note_category_field.hidden_field :id %>
+        <%= note_category_field.hidden_field :category_id %>
+        <%= note_category_field.collection_select :category_id, Category.all, :id, :name %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= form.label :tag, {class: 'form_label'} %>
     <%= form.text_field :tag, class: "tag" %>
   </div>
 
   <div class="field">
-    <%= form.label :overview %>
+    <%= form.label :overview , {class: 'form_label'}%>
     <%= form.text_area :overview, class: "overview" %>
   </div>
 
   <div class="field">
-    <%= form.label :detail %>
+    <%= form.label :detail, {class: 'form_label'} %>
     <%= form.text_area :detail, class: "detail" %>
   </div>
 

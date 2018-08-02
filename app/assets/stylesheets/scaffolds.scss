@@ -106,18 +106,27 @@ a {
   width: 100%;
 }
 
+.form_label {
+  width: 100px;
+  heiht: 40px;
+  vertical-align: top;
+}
+
 .title {
-  width: 200px;
+  width: 500px;
+  vertical-align: top;
 }
 
 .overview {
-  width: 400px;
+  width: 500px;
   min-height: 150px;
+  vertical-align: top;
 }
 
 .detail {
-  width: 400px;
+  width: 500px;
   min-height: 300px;
+  vertical-align: top;
 }
 
 .side-bar{
@@ -182,21 +191,21 @@ a {
 }
 
 .note-contents {
-  width: 990px;
+  width: 492px;
   height: auto;
   padding: 2px;
   background-color: #ffffe0;
 }
 
 .note-header{
-  width: 986px;
+  width: 492px;
   height: auto;
   padding: 2px;
   background-color: #ffffe0;
 }
 
 .note-overview {
-  width: 986px;
+  width: 492px;
   min-height: 100px;
   padding: 2px;
   background-color: #ffffe0;
@@ -230,6 +239,13 @@ a {
     display: inline;
 }
 
+.form_label {
+    width: 100px;
+    heiht: 40px;
+    background-color: #fff;
+    vertical-align: top;
+}
+
 @media screen and ( max-width:1200px ){
   .body {
     width: 990px;
@@ -246,7 +262,7 @@ a {
   }
 
   .site_title {
-    width: 700px;
+    width: 800px;
     min-height: 50px;
     float: left;
     font-size: 20px;
@@ -270,16 +286,16 @@ a {
   }
 
   .title {
-    width: 200px;
+    width: 500px;
   }
 
   .overview {
-    width: 400px;
+    width: 500px;
     min-height: 150px;
   }
 
   .detail {
-    width: 400px;
+    width: 500px;
     min-height: 300px;
   }
 
@@ -303,6 +319,15 @@ a {
     float: left;
     padding: 1px;
     background-color: #ffffe0;
+  }
+
+  .bookmark{
+    width: 790px;
+    height: 50px;
+    float: left;
+    padding: 5px;
+    background-color: #ffffe0;
+    
   }
 
   .main-contents{
@@ -401,7 +426,7 @@ a {
   }
 
   .site_title {
-    width: 400px;
+    width: 600px;
     min-height: 50px;
     float: left;
     font-size: 20px;
@@ -426,7 +451,11 @@ a {
   }
 
   .title {
-    width: 200px;
+    width: 394px;
+  }
+
+  .tag {
+    width: 394px;
   }
 
   .overview {
@@ -445,6 +474,15 @@ a {
     float: left;
     padding: 5px;
     background-color: #fff;
+  }
+
+  .bookmark{
+    width: 570px;
+    height: 50px;
+    float: left;
+    padding: 5px;
+    background-color: #ffffe0;
+    
   }
 
   .main-contents {
@@ -560,12 +598,12 @@ a {
   .header {
     width: 745px;
     min-height: 50px;
-    background-color: #000;
+    background-color: #191970;
     color: fff;
   }
 
   .site_title {
-    width: 745px;
+    width: 550px;
     min-height: 50px;
     float: left;
     font-size: 20px;
@@ -605,7 +643,7 @@ a {
   .footer {
     width: 745px;
     min-height: 50px;
-    background-color: #000;
+    background-color: #191970;
     color: fff;
   }
 
@@ -614,16 +652,20 @@ a {
   }
 
   .title {
-    width: 200px;
+    width: 400px;
+  }
+
+  .tag {
+    width: 400px;
   }
 
   .overview {
-    width: 745px;
+    width: 400px;
     min-height: 150px;
   }
 
   .detail {
-    width: 745px;
+    width: 400px;
     min-height: 300px;
   }
 
@@ -633,6 +675,15 @@ a {
     float: left;
     padding: 5px;
     background-color: #fff;
+  }
+
+  .bookmark{
+    width: 598px;
+    height: 50px;
+    float: left;
+    padding: 5px;
+    background-color: #ffffe0;
+    
   }
 
   .main-contents {
@@ -745,7 +796,7 @@ a {
   .header {
     width: 640px;
     min-height: 50px;
-    background-color: #000;
+    background-color: #191970;
     color: fff;
   }
 
@@ -758,7 +809,11 @@ a {
   }
 
   .site_title a {
-      color: #fff;
+    width: 400px;
+    min-height: 50px;
+    float: left;
+    font-size: 20px;
+    vertical-align: middle;
   }
 
   .site_title a:visited {
@@ -790,7 +845,7 @@ a {
   .footer {
     width: 640px;
     min-height: 50px;
-    background-color: #000;
+    background-color: #191970;
     color: fff;
   }
 
@@ -799,25 +854,38 @@ a {
   }
 
   .title {
-    width: 200px;
+    width: 400px;
+  }
+
+  .tag {
+    width: 400px;
   }
 
   .overview {
-    width: 500px;
+    width: 400px;
     min-height: 150px;
   }
 
   .detail {
-    width: 500px;
+    width: 400px;
     min-height: 300px;
   }
 
   .side-bar{
     width: 140px;
-    min-height: 300px;
+    min-height: 140px;
     float: left;
     padding: 5px;
     background-color: #fff;
+  }
+
+  .bookmark{
+    width: 500px;
+    height: 50px;
+    float: left;
+    padding: 5px;
+    background-color: #ffffe0;
+    
   }
 
   .main-contents {
