@@ -1,44 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>----</strong>  
-  <%= image_tag @profile_photo.to_s %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= @user_profile.user_id %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @user_profile.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user_profile.last_name %>
-</p>
-
-<p>
-  <strong>Pref code:</strong>
-  <%= @prefs[@user_profile.pref_code] %>
-</p>
-
-<p>
-  <strong>Postal code:</strong>
-  <%= @user_profile.postal_code %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @user_profile.address %>
-</p>
-
-<p>
-  <strong>Self introduction:</strong>
-  <%= @user_profile.self_introduction %>
-</p>
-
+<br>
+  <table>
+    <tbody>
+      <tr>
+        <td colspan="2">
+          <%= image_tag @profile_photo.to_s %><br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          氏名
+        </td>
+        <td>
+          <%= @user_profile.first_name %> <%= @user_profile.last_name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          住所
+        </td>
+        <td>
+          〒<%= @user_profile.postal_code %><br>
+          <%= @prefs[@user_profile.pref_code] %> <%= @user_profile.address %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          自己紹介
+        </td>
+        <td>
+          <%= @user_profile.self_introduction %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<br>
 <%= link_to 'Back to Top', root_path %> |
 <%= link_to 'Back', user_profiles_path %> |
 <%= link_to 'Edit', edit_user_profile_path(@user_profile) if @user_profile.user_id == current_user.id %>
