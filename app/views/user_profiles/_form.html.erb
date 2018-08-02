@@ -13,37 +13,37 @@
   <%= form.hidden_field :user_id %>
 
   <div class="field">
-    <%= form.label :first_name %>
+    <%= form.label :first_name, {class: 'form_label'} %>
     <%= form.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
+    <%= form.label :last_name, {class: 'form_label'} %>
     <%= form.text_field :last_name %>
   </div>
 
   <div class="field">
-    <%= form.label :profile_photo %>
+    <%= form.label :profile_photo, {class: 'form_label'} %>
     <%= form.file_field :profile_photo %>
   </div>
   
   <div class="field">
-    <%= form.label :pref_code %>
+    <%= form.label :pref_code, {class: 'form_label'} %>
     <%= form.select :pref_code, @prefs.invert %>
   </div>
 
   <div class="field">
-    <%= form.label :postal_code %>
+    <%= form.label :postal_code, {class: 'form_label'} %>
     <%= form.text_field :postal_code %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
+    <%= form.label :address, {class: 'form_label'} %>
     <%= form.text_field :address %>
   </div>
 
   <div class="field">
-    <%= form.label :self_introduction %>
+    <%= form.label :self_introduction, {class: 'form_label'} %>
     <%= form.text_area :self_introduction %>
   </div>
 
