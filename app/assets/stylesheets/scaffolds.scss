@@ -547,169 +547,6 @@ a {
   }
 }
 
-@media screen and ( max-width:767px ){
-  .body {
-    width: 570px;
-    min-heiht: 700px;
-    overflow: auto;
-    background-color: #fff;
-  }
-
-  .header {
-    width: 570px;
-    min-height: 50px;
-    background-color: #191970;
-    color: fff;
-  }
-
-  .site_title {
-    width: 150px;
-    min-height: 50px;
-    float: left;
-    font-size: 20px;
-    vertical-align: middle;
-  }
-
-  .contents {
-    width: 570px;
-    background-color: #fff;
-  }
-
-  .footer {
-    width: 570px;
-    min-height: 50px;
-    background-color: #191970;
-    color: fff;
-  }
-
-  .menu {
-    width: 570px;
-  }
-
-  .title {
-    width: 200px;
-  }
-
-  .overview {
-    width: 570px;
-    min-height: 150px;
-  }
-
-  .detail {
-    width: 570px;
-    min-height: 300px;
-  }
-
-  .side-bar{
-    width: 150px;
-    min-height: 300px;
-    float: left;
-    padding: 5px;
-    background-color: #fff;
-  }
-
-  .main-contents {
-    width: 568px;
-    float: left;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
-  .left-contents{
-    min-width: 566px;
-    float: left;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
-  .right-contents {
-    min-width: 566px;
-    float: left;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
-  .notes {
-    max-width: 564px;
-    float: left;
-    padding: 1px;
-    background-color: #ffffff;
-  }
-
-  .note {
-    max-width: 562px;
-    height: 200px;
-    float: left;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
-  .note-title {
-    max-width: 562px;
-    padding: 5px;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
-  .note-overview {
-    min-width: 562px;
-    padding: 5px;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
-
-  .note-contents {
-    width: 568px;
-    height: auto;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
-  .note-header{
-    width: 566px;
-    height: auto;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
-  .note-overview {
-    width: 566px;
-    min-height: 100px;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
-  .note-detail {
-    width: 566px;
-    min-height: 100px;
-    padding: 1px;
-    background-color: #ffffe0;
-  }
-
-  .comments{
-    width: 566px;
-    min-height: 100px;
-    padding: 1px;
-    background-color: #fff;
-  }
-  .comment_detail {
-    width: 500px;
-    min-height: 100px;
-    padding: 1px;
-  }
-
-
-
-  .page_row {
-      width: 570px;
-      min-height: 100px;
-  }
-
-  .nav ul li{   
-      display: inline;
-  }
-}
 
 @media screen and ( max-width:750px )
 {
@@ -895,6 +732,192 @@ a {
       display: inline;
   }
 }
+
+@media screen and ( max-width:640px )
+{
+  .document_root{
+    width: 640px;
+    min-height: 800px;
+    margin: 0 auto;
+    background-color: white;
+  }
+
+  .header {
+    width: 640px;
+    min-height: 50px;
+    background-color: #000;
+    color: fff;
+  }
+
+  .site_title {
+    width: 640px;
+    min-height: 50px;
+    float: left;
+    font-size: 20px;
+    vertical-align: middle;
+  }
+
+  .site_title a {
+      color: #fff;
+  }
+
+  .site_title a:visited {
+      color: #fff;
+  }
+
+  .site_setup {
+      background: #000;
+      color: #fff;
+      width: 100px;
+      height: 50px;
+      float: left;
+      border: 0px solid gray;
+  }
+
+  .body {
+    width: 640px;
+    min-heiht: 700px;
+    overflow: auto;
+    background-color: #fff;
+  }
+
+  .contents {
+    width: 640px;
+    min-height: 700px;
+    background-color: #fff;
+  }
+
+  .footer {
+    width: 640px;
+    min-height: 50px;
+    background-color: #000;
+    color: fff;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .title {
+    width: 200px;
+  }
+
+  .overview {
+    width: 500px;
+    min-height: 150px;
+  }
+
+  .detail {
+    width: 500px;
+    min-height: 300px;
+  }
+
+  .side-bar{
+    width: 140px;
+    min-height: 300px;
+    float: left;
+    padding: 5px;
+    background-color: #fff;
+  }
+
+  .main-contents {
+    width: 500px;
+    float: left;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .left-contents{
+    width: 500px;
+    float: left;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .right-contents {
+    width: 500px;
+    float: left;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .notes {
+    width: 498px;
+    float: left;
+    padding: 1px;
+    background-color: #ffffff;
+  }
+
+  .note {
+    width: 496px;
+    height: 200px;
+    float: left;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-title {
+    width: 496px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-overview {
+    width: 496px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-contents {
+    width: 496px;
+    height: auto;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-header{
+    width: 496px;
+    height: auto;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-overview {
+    width: 496px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .note-detail {
+    width: 496px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #ffffe0;
+  }
+
+  .comments{
+    width: 496px;
+    min-height: 100px;
+    padding: 1px;
+    background-color: #fff;
+  }
+  .comment_detail {
+    width: 496px;
+    min-height: 100px;
+    padding: 1px;
+  }
+
+  .page_row {
+    width: 575  px;
+    min-height: 100px;
+  }
+
+  .nav ul li{   
+      display: inline;
+  }
+}
+
 th {
   padding-bottom: 5px;
 }
