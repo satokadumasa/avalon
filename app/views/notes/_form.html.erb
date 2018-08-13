@@ -1,54 +1,94 @@
-<%= form_with(model: note, local: true) do |form| %>
-  <% if note.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+      <script type="text/javascript">
+      $(function() {
+        var str = $("#detail textarea").text();
+        str = replaceToHtml(str);
+        $("#marked-area").html(str);
 
-      <ul>
-      <% note.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <% note.user_notes.each do |user_note| %>
-    <%= form.fields_for :user_notes, user_note do | user_note_field| %>
-      <%= user_note_field.hidden_field :id %>
-      <%= user_note_field.hidden_field :user_id %>
-      <%= user_note_field.hidden_field :note_id %>
-    <% end %>
-  <% end %>
+        $("#detail textarea").each(function () {
+          $(this).bind('keyup', replaceMarkdown(this));
+        });
 
-  <div class="field">
-    <%= form.label :title, {class: 'form_label'} %>
-    <%= form.text_field :title, class: "title" %>
-  </div>
+        $('#uploadable').inlineattachment({
+          urlText: '#img:{filename}:alt:',
+          uploadUrl: "/image_upload/create",
+          uploadFieldName: "asset[file]",
+          allowedTypes: ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'],
+          extraHeaders: {"X-CSRF-Token": $("meta[name=csrf-token]").attr("content")}
+        });
+      });
 
-  <div class="field">
-    <%= form.label :category, {class: 'form_label'} %>
-    <% note.note_categories.each do |note_category| %>
-      <%= form.fields_for :note_categories, note_category do | note_category_field| %>
-        <%= note_category_field.hidden_field :id %>
-        <%= note_category_field.hidden_field :category_id %>
-        <%= note_category_field.collection_select :category_id, Category.all, :id, :name %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="field">
-    <%= form.label :tag, {class: 'form_label'} %>
-    <%= form.text_field :tag, class: "tag" %>
-  </div>
+      function replaceMarkdown(elm) {
+        var v, old = elm.value;
+        return function () {
+          if (old != (v = elm.value)) {
+            old = v;
+            var str = $(this).val();
+            str = replaceToHtml(str);
+            $("#marked-area").html(str);
+          }
+        }
+      }
+      </script>
+      <div class="main-contents">
+        <div class="left-contents">
+          <%= form_with(model: note, local: true) do |form| %>
+            <% if note.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+                <ul>
+                <% note.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <% note.user_notes.each do |user_note| %>
+              <%= form.fields_for :user_notes, user_note do | user_note_field| %>
+                <%= user_note_field.hidden_field :id %>
+                <%= user_note_field.hidden_field :user_id %>
+                <%= user_note_field.hidden_field :note_id %>
+              <% end %>
+            <% end %>
 
-  <div class="field">
-    <%= form.label :overview , {class: 'form_label'}%>
-    <%= form.text_area :overview, class: "overview" %>
-  </div>
+            <div class="field">
+              <%= form.label :title, {class: 'form_label'} %>
+              <%= form.text_field :title, class: "title" %>
+            </div>
 
-  <div class="field">
-    <%= form.label :detail, {class: 'form_label'} %>
-    <%= form.text_area :detail, class: "detail" %>
-  </div>
+            <div class="field">
+              <%= form.label :category, {class: 'form_label'} %>
+              <% note.note_categories.each do |note_category| %>
+                <%= form.fields_for :note_categories, note_category do | note_category_field| %>
+                  <%= note_category_field.hidden_field :id %>
+                  <%= note_category_field.hidden_field :category_id %>
+                  <%= note_category_field.collection_select :category_id, Category.all, :id, :name %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="field">
+              <%= form.label :tag, {class: 'form_label'} %>
+              <%= form.text_field :tag, class: "tag" %>
+            </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+            <div class="field">
+              <%= form.label :overview , {class: 'form_label'}%>
+              <%= form.text_area :overview, class: "overview  form-control" %>
+            </div>
+
+            <div class="field" id="detail">
+              <%= form.label :detail, {class: 'form_label'} %>
+              <%= form.text_area :detail, class: "detail form-control", id: "uploadable" %>
+            </div>
+            
+            <div class="actions">
+              <%= form.submit %>
+            </div>
+          <% end %>
+        </div>
+        <div class="right-contents">
+          【プレビュー】
+          <div id="marked-area">
+          </div>
+        </div>
+      </div>        
+

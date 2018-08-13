@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'image_upload/create'
+  resources :image_files
   resources :tags
   root 'welcome#index'
   get 'home/index'

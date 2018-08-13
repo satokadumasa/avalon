@@ -1,17 +1,29 @@
 # config/settings.yml
 development:
+  image_base_url: https://celaenoimages.s3.amazonaws.com
+  description: 小説投稿サイト「書庫セラエノ」。絶賛会員募集長！
+  content_title: 書庫セラエノ
+  content_overview: 小説投稿サイト「書庫セラエノ」。絶賛会員募集長！
   pagenate_count:
     notes: 10
     pages: 10
     tags: 25
  
 test:
+  image_base_url: https://celaenoimages.s3.amazonaws.com
+  description: 小説投稿サイト「書庫セラエノ」。絶賛会員募集長！
+  content_title: 書庫セラエノ
+  content_overview: 小説投稿サイト「書庫セラエノ」。絶賛会員募集長！
   pagenate_count:
     notes: 10
     pages: 10
     tags: 25
  
 production:
+  image_base_url: https://celaenoimages.s3.amazonaws.com
+  description: 小説投稿サイト「書庫セラエノ」。絶賛会員募集長！
+  content_title: 書庫セラエノ
+  content_overview: 小説投稿サイト「書庫セラエノ」。絶賛会員募集長！
   pagenate_count:
     notes: 10
     pages: 10

@@ -34,6 +34,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   def new
     logger.debug "PagesController::new() params:" + params.inspect
+    @nate_id = params[:note_id]
     @page = Page.new
     @page.note_pages.build
     @page.user_pages.build
@@ -50,23 +51,27 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     page_attr = page_params
+    logger.debug ">>>>>>>>>>PagesController.create page_params:" + page_params.inspect
     # page_attr[:tag] = page_params[:tag].split(" ")
     tag_names = page_params[:tag].split(" ")
     page_attr[:tag] = tag_names
+    @nate_id = page_params[:note_id]
 
     ActiveRecord::Base.transaction do
       Tag.add_count(tag_names, [])
       @page = Page.new(page_attr)
-      logger.debug "PagesController::create() page:" + @page.inspect
+      logger.debug ">>>>>>>>PagesController::create() page:" + @page.inspect
       @page.save!
     end
 
     respond_to do |format|
+      logger.debug ">>>>>>>>PagesController::create() CH-01"
       format.html { redirect_to :action => "show",:id => @page.id}
       # format.json { render :show, status: :created, location: @page }
     end
     rescue => e
     respond_to do |format|
+      logger.debug ">>>>>>>>PagesController::create() page.errors:" + e.backtrace.inspect
       format.html { render :new }
       # format.json { render json: @page.errors, status: :unprocessable_entity }
     end
@@ -125,7 +130,7 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:title, :tags, :overview, :detail, user_pages_attributes: [:id, :user_id, :page_id], note_pages_attributes: [:id, :note_id, :page_id])
+      params.require(:page).permit(:title, :tag, :overview, :detail, user_pages_attributes: [:id, :user_id, :page_id], note_pages_attributes: [:id, :note_id, :page_id])
     end
 
     def set_active

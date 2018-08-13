@@ -4,8 +4,10 @@ class ApplicationController < ActionController::Base
 
   private
     def set_description
-      @description="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
-      @content_title="書庫セラエノ"
-      @content_overview="小説投稿サイト「書庫セラエノ」。絶賛会員募集長！"
+      logger.debug "ApplicationController.set_description image_base_url:" + APP_CONFIG.inspect
+      @image_base_url = APP_CONFIG["image_base_url"]
+      @description = APP_CONFIG["description"]
+      @content_title = APP_CONFIG["content_title"]
+      @content_overview = APP_CONFIG["content_overview"]
     end
 end

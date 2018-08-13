@@ -1,3 +1,10 @@
+    <script type="text/javascript">
+    $(function() {
+      var str = $("#note-detail").text();
+      str = replaceToHtml(str);
+      $("#note-detail").html(str);
+    });
+    </script>
     <div class="side-bar">
       <%= link_to @note.title, @note %><br>
       <ul>
@@ -60,10 +67,10 @@
           <%= simple_format Coderay(tag_convert(@note.overview)) %>
         </div>
         <!-- /note-overview -->
+        <hr>
         <!-- /note-detail -->
-        <div class="note-detail">
-          <hr>
-          <%= simple_format tag_convert(@note.detail) %>
+        <div class="note-detail" id="note-detail">
+          <%= tag_convert(@note.detail) %>
         </div>
         <!-- /note-detail -->
       </div>

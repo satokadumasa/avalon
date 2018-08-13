@@ -113,20 +113,47 @@ a {
 }
 
 .title {
-  width: 500px;
+  width: 494px;
   vertical-align: top;
 }
 
 .overview {
-  width: 500px;
+  width: 494px;
   min-height: 150px;
   vertical-align: top;
 }
 
 .detail {
-  width: 500px;
+  width: 494px;
   min-height: 300px;
   vertical-align: top;
+}
+
+.fileupload{
+  width: 494px;
+  min-height: 50px;
+  background-color: #faebd7;
+}
+
+.prevbox{
+  width: 494px;
+  min-height: 50px;
+}
+
+.footer-menu{
+}
+
+#marked-area {
+  width: 496px;
+  height: 700px;
+  float: left;
+  padding: 1px;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+
+.image {
+  float: left;
 }
 
 .side-bar{
@@ -139,16 +166,18 @@ a {
 
 .left-contents{
   width: 496px;
+  min-height: 700px;
   float: left;
   padding: 1px;
-  background-color: #ffffe0;
+  background-color: #fff;
 }
 
 .right-contents {
   width: 496px;
+  min-height: 700px;
   float: left;
   padding: 1px;
-  background-color: #ffffe0;
+  background-color: #fff;
 }
 
 .bookmark{
@@ -165,7 +194,7 @@ a {
   min-height: 700px;
   float: left;
   padding: 1px;
-  background-color: #ffffe0;
+  background-color: #fff;
 }
 
 .notes {
@@ -299,6 +328,15 @@ a {
     min-height: 300px;
   }
 
+  #marked-area {
+    width: 496px;
+    height: 700px;
+    float: left;
+    padding: 1px;
+    background-color: #fff;
+    overflow-y: scroll;
+  }
+
   .side-bar{
     width: 200px;
     min-height: 300px;
@@ -311,14 +349,14 @@ a {
     width: 393px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .right-contents {
     width: 393px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .bookmark{
@@ -335,7 +373,7 @@ a {
     min-height: 700px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .notes {
@@ -468,6 +506,15 @@ a {
     min-height: 300px;
   }
 
+  #marked-area {
+    width: 394px;
+    height: 700px;
+    float: left;
+    padding: 1px;
+    background-color: #fff;
+    overflow-y: scroll;
+  }
+
   .side-bar{
     width: 150px;
     min-height: 300px;
@@ -489,21 +536,21 @@ a {
     width: 570px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .left-contents{
     width: 568px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .right-contents {
     width: 568px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .notes {
@@ -669,6 +716,15 @@ a {
     min-height: 300px;
   }
 
+  #marked-area {
+    width: 396px;
+    height: 700px;
+    float: left;
+    padding: 1px;
+    background-color: #fff;
+    overflow-y: scroll;
+  }
+
   .side-bar{
     width: 145px;
     min-height: 300px;
@@ -690,21 +746,21 @@ a {
     width: 598px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .left-contents{
     width: 596px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .right-contents {
     width: 596px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .notes {
@@ -871,6 +927,15 @@ a {
     min-height: 300px;
   }
 
+  #marked-area {
+    width: 396px;
+    height: 700px;
+    float: left;
+    padding: 1px;
+    background-color: #fff;
+    overflow-y: scroll;
+  }
+
   .side-bar{
     width: 140px;
     min-height: 140px;
@@ -892,21 +957,21 @@ a {
     width: 500px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .left-contents{
     width: 500px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .right-contents {
     width: 500px;
     float: left;
     padding: 1px;
-    background-color: #ffffe0;
+    background-color: #fff;
   }
 
   .notes {

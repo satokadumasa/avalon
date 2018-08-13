@@ -28,7 +28,6 @@ class UserProfilesController < ApplicationController
     @user_profile = UserProfile.new
     @user_profile.user_id = current_user.id
     @prefs = YAML.load_file("config/prefs.yml")
-    # logger.debug "user_profile:" + @user_profile.inspect
   end
 
   # GET /user_profiles/1/edit

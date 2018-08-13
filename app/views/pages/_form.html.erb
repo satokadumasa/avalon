@@ -1,53 +1,94 @@
-<%= form_with(model: page, url: url_for(controller: :pages, :action => page.id ? "update" : "create", note_id: page.note_pages[0].note_id)) do |form| %>
-  <% if page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
+      <script type="text/javascript">
+      $(function() {
+        var str = $("#detail textarea").text();
+        str = replaceToHtml(str);
+        $("#marked-area").html(str);
 
-      <ul>
-      <% page.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        $("#detail textarea").each(function () {
+          $(this).bind('keyup', replaceMarkdown(this));
+        });
 
-  <% page.user_pages.each do |user_page| %>
-    <%= form.fields_for :user_pages, user_page do | user_page_field| %>
-      <%= user_page_field.hidden_field :id %>
-      <%= user_page_field.hidden_field :user_id %>
-      <%= user_page_field.hidden_field :page_id %>
-    <% end %>
-  <% end %>
+        $('#uploadable').inlineattachment({
+          urlText: '#img:{filename}:alt:',
+          uploadUrl: "/image_upload/create",
+          uploadFieldName: "asset[file]",
+          allowedTypes: ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'],
+          extraHeaders: {"X-CSRF-Token": $("meta[name=csrf-token]").attr("content")}
+        });
+      });
 
-  <% page.note_pages.each do |note_page| %>
-    <%= form.fields_for :note_pages, note_page do | note_page_field| %>
-      <%= note_page_field.hidden_field :id %>
-      <%= note_page_field.hidden_field :note_id %>
-      <%= note_page_field.hidden_field :page_id %>
-    <% end %>
-  <% end %>
+      function replaceMarkdown(elm) {
+        var v, old = elm.value;
+        return function () {
+          if (old != (v = elm.value)) {
+            old = v;
+            var str = $(this).val();
+            str = replaceToHtml(str);
+            $("#marked-area").html(str);
+          }
+        }
+      }
+      </script>
+      <div class="main-contents">
+        <div class="left-contents">
+          <%= form_with(model: page, url: url_for(controller: :pages, :action => (page && page.id) ? "update" : "create", note_id: page && page.note_pages ? page.note_pages[0].note_id : @note_id )) do |form| %>
+            <% if page.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
 
-  <div class="field">
-    <%= form.label :title, {class: 'form_label'} %>
-    <%= form.text_field :title, class: "title" %>
-  </div>
+                <ul>
+                <% page.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
 
-  <div class="field">
-    <%= form.label :tags, {class: 'form_label'} %>
-    <%= form.text_field :tags, class: "tags" %>
-  </div>
+            <% page.user_pages.each do |user_page| %>
+              <%= form.fields_for :user_pages, user_page do | user_page_field| %>
+                <%= user_page_field.hidden_field :id %>
+                <%= user_page_field.hidden_field :user_id %>
+                <%= user_page_field.hidden_field :page_id %>
+              <% end %>
+            <% end %>
+            <% if page.note_pages %>
+              <% page.note_pages.each do |note_page| %>
+                <%= form.fields_for :note_pages, note_page do | note_page_field| %>
+                  <%= note_page_field.hidden_field :id %>
+                  <%= note_page_field.hidden_field :note_id %>
+                  <%= note_page_field.hidden_field :page_id %>
+                <% end %>
+              <% end %>
+            <% end %>
 
-  <div class="field">
-    <%= form.label :overview, {class: 'form_label'} %>
-    <%= form.text_area :overview, class: "overview" %>
-  </div>
+            <div class="field">
+              <%= form.label :title, {class: 'form_label'} %>
+              <%= form.text_field :title, class: "title" %>
+            </div>
 
-  <div class="field">
-    <%= form.label :detail, {class: 'form_label'} %>
-    <%= form.text_area :detail, class: "detail" %>
-  </div>
+            <div class="field">
+              <%= form.label :tag, {class: 'form_label'} %>
+              <%= form.text_field :tag, class: "tags" %>
+            </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+            <div class="field">
+              <%= form.label :overview, {class: 'form_label'} %>
+              <%= form.text_area :overview, class: "overview" %>
+            </div>
+
+            <div class="field" id="detail">
+              <%= form.label :detail, {class: 'form_label'} %>
+              <%= form.text_area :detail, class: "detail" %>
+            </div>
+
+            <div class="actions">
+              <%= form.submit %>
+            </div>
+          <% end %>
+        </div>
+        <div class="right-contents">
+          【プレビュー】
+          <div id="marked-area">
+          </div>
+        </div>
+      </div>        
