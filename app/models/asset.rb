@@ -4,10 +4,7 @@ class Asset
   attr_accessor :file
   attr_accessor :user_id
   attr_reader   :url
-# bucket: celaenoimages
-# access_key_id: AKIAJ6HOMTSNNX4EXW5Q
-# secret_access_key: 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
-# s3_host_name: https://s3.amazonaws.com/celaenoimages/images
+
   BucketName = 'celaenoimages'
   BasePath   = 'assets/images/'
 
