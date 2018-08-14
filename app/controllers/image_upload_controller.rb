@@ -2,8 +2,11 @@ class ImageUploadController < ApplicationController
   before_action :set_active
 
   def create
-    asset_params[:user_id] = current_user.id.to_s
+    # asset_params["user_id"] = current_user.id.to_s
+    # logger.debug "ImageUploadController.create asset_params:" + asset_params.inspect
     asset = Asset.new(asset_params)
+    asset.user_id = current_user.id.to_s
+    logger.debug "ImageUploadController.create asset_params:" + asset.inspect
 
     unless [
       'image/png',
