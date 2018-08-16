@@ -6,6 +6,7 @@ function replaceToHtml(str) {
   }
   str = replaceToImgTag(str);
   str = replaceToBr(str);
+  str = replaceToBold(str);
   return str;
 }
 
@@ -61,6 +62,23 @@ function replaceToBr(str) {
       result = results[i].replace(/#/,'');
       var arr = result.split(":");
       result = arr[1] + "<" + arr[0] + ">\n";
+      str = str.replace(results[i], result);
+    }
+  }
+  return str;
+}
+
+function replaceToBold(str) {
+  var pattern = "##(.*?)##";
+  var regexp = new RegExp(pattern, 'g');
+  var results = str.match(regexp);
+
+  if(results) {
+    for(var i = 0; i < results.length; i++) {
+      var result = "";
+      result = results[i].replace(/##/g,'');
+      // var arr = result.split(":");
+      result = "<b>" + result + "</b>";
       str = str.replace(results[i], result);
     }
   }

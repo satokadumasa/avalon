@@ -16,9 +16,9 @@ development:
   encoding: utf8
   database: avalon_dev
   pool: 5
-  username: root
-  password: glxre297
-  host: localhost
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASS"] %>
+  host: <%= ENV["DB_HOST"] %>
   # socket: /tmp/mysql.sock
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
