@@ -39,5 +39,6 @@ _app_name = File.basename(_app_path)
 _home = ENV.fetch("HOME") { "/home/ubuntu" }
 pidfile "#{_home}/run/#{_app_name}.pid"
 # bind "unix://#{_home}/run/#{_app_name}.sock"
+pidfile "unix://#{Rails.root}/tmp/#{_app_name}.pid"
 bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
 directory _app_path
