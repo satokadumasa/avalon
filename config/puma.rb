@@ -34,9 +34,10 @@ workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
 
-# _app_path = "#{File.expand_path("../..", __FILE__)}"
-# _app_name = File.basename(_app_path)
-# _home = ENV.fetch("HOME") { "/home/ubuntu" }
-# pidfile "#{_home}/run/#{_app_name}.pid"
+_app_path = "#{File.expand_path("../..", __FILE__)}"
+_app_name = File.basename(_app_path)
+_home = ENV.fetch("HOME") { "/home/ubuntu" }
+pidfile "#{_home}/run/#{_app_name}.pid"
 # bind "unix://#{_home}/run/#{_app_name}.sock"
-# directory _app_path
+bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
+directory _app_path
