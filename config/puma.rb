@@ -36,7 +36,7 @@ plugin :tmp_restart
 
 _app_path = "#{File.expand_path("../..", __FILE__)}"
 _app_name = File.basename(_app_path)
-_home = ENV.fetch("HOME") { "/home/ubuntu" }
+_home = ENV.fetch("HOME") { "/home/ec2-user" }
 pidfile "#{_home}/run/#{_app_name}.pid"
 # bind "unix://#{_home}/run/#{_app_name}.sock"
 # pidfile "unix://#{Rails.root}/tmp/#{_app_name}.pid"
