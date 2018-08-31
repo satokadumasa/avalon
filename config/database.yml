@@ -29,7 +29,10 @@ test:
 
 production:
   <<: *default
-  database: avalon
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
+  database: celaenodb
   pool: 5
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASS"] %>
+  host: <%= ENV["DB_HOST"] %>
