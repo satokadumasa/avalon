@@ -53,7 +53,7 @@
           <%= link_to 'Edit', edit_note_path(@note) %> |
           <% end %>
           <%= link_to 'Back', notes_path %> | 
-          <a href="https://twitter.com/share?url=<%=URI.escape("https://www.celaeno.site/notes/#{@note.id}/") %>&via=susanoo&text=<%= @note.title %><%=@note.overview[0, 80] %>&lang=ja&rel=nofollow" target="_blank">Tweet</a>
+          <a href="https://twitter.com/share?url=<%=URI.escape("https://www.selaeno.com/notes/#{@note.id}/") %>&via=susanoo&text=<%= @note.title %><%=@note.overview[0, 80] %>&lang=ja&rel=nofollow" target="_blank">Tweet</a>
           <hr>
           <% if @tags %>
             <% @tags.each do |tag| %>

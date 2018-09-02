@@ -73,7 +73,7 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'nokogiri'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
-
+gem 'aws-ses', '~> 0.6'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'letter_opener_web'

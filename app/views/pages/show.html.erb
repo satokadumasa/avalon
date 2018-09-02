@@ -34,7 +34,7 @@
           <%= link_to 'Edit', url_for(controller: :pages, action: :edit, id: @page.id, note_id: @page.note_pages[0].page_id) %>|
           <% end %>
           <%= link_to 'Back', url_for(controller: :notes, action: :show, id: @page.note_pages[0].note_id) %> | 
-          <a href="https://twitter.com/share?url=<%=URI.escape("https://www.celaeno.site/notes/#{@page.note_pages[0].note_id}/pages/#{@page.id}") %>&via=susanoo&text=<%= @page.title %><%=@page.overview[0, 80] %>&lang=ja&rel=nofollow" target="_blank">
+          <a href="https://twitter.com/share?url=<%=URI.escape("https://www.selaeno.com/notes/#{@page.note_pages[0].note_id}/pages/#{@page.id}") %>&via=susanoo&text=<%= @page.title %><%=@page.overview[0, 80] %>&lang=ja&rel=nofollow" target="_blank">
           Tweet
           </a>
           <hr>
