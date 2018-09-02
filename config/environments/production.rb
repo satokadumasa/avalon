@@ -109,5 +109,5 @@ Rails.application.configure do
   #   :domain         => 'heroku.com',
   #   :enable_starttls_auto => true
   # }
-  onfig.action_mailer.delivery_method = :ses
+  config.action_mailer.delivery_method = :ses
 end
