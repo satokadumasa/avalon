@@ -4,6 +4,7 @@ Aws.config.update({
 })
 
 S3_BUCKET = Aws::S3::Resource.new.bucket('celaenoimages')
+
 ActionMailer::Base.add_delivery_method :ses,
                                        AWS::SES::Base,
                                        access_key_id: ENV['AWS_ACCESS_KEY_ID2'],

@@ -27,7 +27,7 @@ class UserProfilesController < ApplicationController
   def new
     @user_profile = UserProfile.new
     @user_profile.user_id = current_user.id
-    @prefs = YAML.load_file("config/prefs.yml")
+    @prefs = YAML.load_file("#{Rails.root}/config/prefs.yml")
   end
 
   # GET /user_profiles/1/edit
@@ -81,7 +81,7 @@ class UserProfilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user_profile
       @user_profile = UserProfile.find(params[:id])
-      @prefs = YAML.load_file("config/prefs.yml")
+      @prefs = YAML.load_file("#{Rails.root}/config/prefs.yml")
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
