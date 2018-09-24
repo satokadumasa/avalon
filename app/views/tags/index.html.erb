@@ -13,15 +13,10 @@
   </thead>
 
   <tbody>
-    <% @tags.each do |tag| %>
-      <tr>
-        <td><%= tag.name %></td>
-        <% if current_user.roles[0].present? && current_user.roles[0].name == "admin" %>
-        <td><%= link_to 'Show', tag %></td>
-        <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+    <% if @tags %>
+      <% @tags.each do |tag| %>
+        <%= link_to tag.name, url_for(controller: "welcome", action: :index, tag: tag.name) %>
       <% end %>
+    <% end %>
   </tbody>
 </table>

@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
     end
     @notes = @notes.all
     
-    @pages = Page.paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"])
+    @pages = Page.paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["pages"]).order('id DESC')
     if params[:tag].present?
       @pages = @pages.where("pages.tag LIKE ? ", "%#{params[:tag]}%") 
     end

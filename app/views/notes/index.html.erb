@@ -1,44 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Notes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Overview</th>
-      <!--
-      <th>Detail</th>
-      -->
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="left-contents">
+  <h4>■ノート毎新着</h4><br>
+  <div class="notes">
     <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.title %></td>
-        <td><%= note.overview[0, 40] + '...' %></td>
-        <!--
-        <td><%= note.detail %></td>
-        -->
-        <td>
-          <%= link_to 'Show', note %>
-        </td>
-        <td>
-          <% if current_user && (note.user_notes[0].user.id == current_user.id || current_user.has_role?(:admin)) %>
-          <%= link_to 'Edit', edit_note_path(note) %>
+    <div class="note">
+      <div class="note-title">
+        <%= note.title %>
+      </div>
+      <div class="note-overview">
+        <%= note.overview[0, 100] + '...' %><br>
+        <%= link_to 'Show', url_for(controller: :notes, action: :show, id: note.id) %>
+        <% if note %>
+          <% if current_user && (current_user.has_role?(:admin) || note.user_notes[0].user.id == current_user.id) %>
+            |<%= link_to 'Edit', url_for(controller: :notes, action: :edit, id: note.id) %>
           <% end %>
-        </td>
-        <td>
-          <% if current_user && (note.user_notes[0].user.id == current_user.id || current_user.has_role?(:admin)) %>
-          <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        <% if note %>
+          <% if current_user && (current_user.has_role?(:admin) || note.user_notes[0].user.id == current_user.id) %>
+            |<%= link_to 'Delete', url_for(controller: :notes, action: :destroy, id: note.id), data: { confirm: 'Are you sure?' } %>
           <% end %>
-        </td>
-      </tr>
+        <% end %>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
 <div class="nav">
 <%= will_paginate @notes, :renderer => BootstrapPagination::Rails %>

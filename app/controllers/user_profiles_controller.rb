@@ -6,7 +6,9 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles.json
   def index
     # @user_profiles = UserProfile.all
-    @user_profiles = UserProfile.paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["notes"]).order("user_profiles.id").all
+    # @user_profiles = UserProfile.paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["notes"]).order("user_profiles.id").all
+    @users = User.eager_load(:user_profile).paginate(:page => params[:page], per_page: APP_CONFIG["pagenate_count"]["notes"]).order("users.id").all
+    @prefs = YAML.load_file("#{Rails.root}/config/prefs.yml")
   end
 
   # GET /user_profiles/1

@@ -1,43 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <h1>User Profiles</h1>
+<div class="user_list">
+  <hr>
+  <% @users.each do |user| %>
+    <div class="user_profile">
+      <div class="id">
+        id:<%=user.id %>
+      </div>
+      <div class="name">
+        username:
+        <% if user.user_profile %>
+          <%=link_to user.username , url_for(controller: "user_profiles", action: :show, id: user.user_profile.id) %>
+        <% else %>
+          <%=user.username %>
+        <% end %>
+      </div>
+      <% if user.user_profile %>
+      <div class="profile">
+        name:<%=user.user_profile.first_name %> <%=user.user_profile.last_name %><br>
+        <%=@prefs[user.user_profile.pref_code] %><br>
+      </div>
+      <% end %>
+    </div>
+  <hr>
+  <% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Pref code</th>
-      <th>Postal code</th>
-      <th>Address</th>
-      <th>Self introduction</th>
-      <!--
-      <th colspan="3"></th>
-      -->
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user_profiles.each do |user_profile| %>
-      <tr>
-        <td><%= user_profile.user_id %></td>
-        <td><%= user_profile.first_name %></td>
-        <td><%= user_profile.last_name %></td>
-        <td><%= user_profile.pref_code %></td>
-        <td><%= user_profile.postal_code %></td>
-        <td><%= user_profile.address %></td>
-        <td><%= user_profile.self_introduction %></td>
-        <!--
-        <td><%= link_to 'Show', user_profile %></td>
-        <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
-        <td><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 <div class="nav">
-<%= will_paginate @user_profiles, :renderer => BootstrapPagination::Rails %>
+<%= will_paginate @users, :renderer => BootstrapPagination::Rails %>
 </div>
 <br>
