@@ -11,7 +11,7 @@
       <div class="name">
         username:
         <% if user.user_profile %>
-          <%=link_to user.username , url_for(controller: "user_profiles", action: :show, id: user.user_profile.id) %>
+          <%=link_to(user.username , url_for(controller: "user_profiles", action: :show, id: user.user_profile.id)) %>
         <% else %>
           <%=user.username %>
         <% end %>

@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   end
   resources :user_roles
   resources :roles
-  # devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
     # sessions: 'users/sessions'

@@ -1,22 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Tags</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <%  if current_user.roles[0].present? && current_user.roles[0].name == "admin" %>
-      <th colspan="3"></th>
-      <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% if @tags %>
-      <% @tags.each do |tag| %>
-        <%= link_to tag.name, url_for(controller: "welcome", action: :index, tag: tag.name) %>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+<% if @tags %>
+  <% @tags.each do |tag| %>
+    <%= link_to tag.name, url_for(controller: "welcome", action: :index, tag: tag.name) %>&#32;
+  <% end %>
+<% end %>

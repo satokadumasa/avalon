@@ -1,38 +1,28 @@
-■ブックマーク<br>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Overview</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bookmarks.each do |bookmark| %>
-      <tr>
-        <td><%= bookmark.note.title %></td>
-        <td><%= bookmark.note.overview[0, 40] + '...' %></td>
-        <td>
-          <% if bookmark.note %>
-          <%= link_to 'Show', url_for(controller: :notes, action: :show, id: bookmark.note.id) %>
-          <% end %>
-        </td>
-        <td>
-          <% if bookmark.note %>
-          <% if current_user && (current_user.has_role?(:admin) || bookmark.note.user_notes[0].user.id == current_user.id) %>
-          <%= link_to 'Edit', url_for(controller: :notes, action: :edit, id: bookmark.note.id) %>
-          <% end %>
-          <% end %>
-        </td>
-        <td>
-          <% if bookmark.note %>
-          <% if current_user && (current_user.has_role?(:admin) || bookmark.note.user_notes[0].user.id == current_user.id) %>
-          <%= link_to 'Delete', url_for(controller: :notes, action: :destroy, id: bookmark.note.id), data: { confirm: 'Are you sure?' } %>
-          <% end %>
-          <% end %>
-        </td>
-      </tr>
+<%
+user = current_user
+%>
+<div class="user_profile">
+  <div class="id">
+    id:<%=current_user.id %>
+  </div>
+  <div class="name">
+    username:
+    <% if current_user.user_profile %>
+      <%=link_to(current_user.username , url_for(controller: "user_profiles", action: :show, id: current_user.user_profile.id)) %>
+    <% else %>
+      <%=current_user.username %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <% if current_user.user_profile %>
+  <div class="profile">
+    name:<%=current_user.user_profile.first_name %> <%=current_user.user_profile.last_name %><br>
+    <%=@prefs[current_user.user_profile.pref_code] %><br>
+  </div>
+  <% end %>
+</div>
+■ブックマーク<br>
+<% @bookmarks.each do |bookmark| %>
+  <% if bookmark.note %>
+  <%= link_to bookmark.note.title, url_for(controller: :notes, action: :show, id: bookmark.note.id) %>&#32;
+  <% end %>
+<% end %>
