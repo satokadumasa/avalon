@@ -2,4 +2,6 @@
 
 <%= render 'form', page: @page %>
 
-<%= link_to "Back", url_for(controller: :pages, action: :show, note_id: @page.notes[0].id, id: @page.id) %>
+<div class="links">
+  <%= link_to "Back", url_for(controller: :pages, action: :show, note_id: @page.notes[0].id, id: @page.id) %>
+</div>

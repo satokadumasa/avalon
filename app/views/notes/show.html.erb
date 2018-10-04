@@ -75,12 +75,14 @@
         <!-- /note-detail -->
       </div>
       <!-- /note-contents -->
-      <% if current_user && @note.user_notes[0].user.id == current_user.id %>
-      <%= link_to 'New Page', url_for(controller: :pages, action: :new, note_id: @note.id) %>|
-      <% end %>
-      <% if current_user && (current_user.has_role?(:admin) || @note.user_notes[0].user.id == current_user.id) %>
-      <%= link_to 'Edit', edit_note_path(@note) %> |
-      <% end %>
-      <%= link_to 'Back', notes_path %>
+      <div class="links">
+        <% if current_user && @note.user_notes[0].user.id == current_user.id %>
+        <%= link_to 'New Page', url_for(controller: :pages, action: :new, note_id: @note.id) %>|
+        <% end %>
+        <% if current_user && (current_user.has_role?(:admin) || @note.user_notes[0].user.id == current_user.id) %>
+        <%= link_to 'Edit', edit_note_path(@note) %> |
+        <% end %>
+        <%= link_to 'Back', notes_path %>
+      </div>
     </div>
     <!-- /main-contents -->

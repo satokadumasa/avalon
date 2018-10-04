@@ -10,5 +10,7 @@
   <%= @user_note.note_id %>
 </p>
 
-<%= link_to 'Edit', edit_user_note_path(@user_note) %> |
-<%= link_to 'Back', user_notes_path %>
+<div class="links">
+	<%= link_to 'Edit', edit_user_note_path(@user_note) %> |
+	<%= link_to 'Back', user_notes_path %>
+</div>

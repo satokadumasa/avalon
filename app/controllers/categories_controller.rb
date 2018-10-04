@@ -6,6 +6,11 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    @notelists = []
+    @categories.each do |category|
+       notes = Note.joins(:note_categories).includes(:note_categories).where(note_categories: {category_id: category.id}).limit(10).all
+       @notelists << {notes: notes, category: category}
+    end
   end
 
   # GET /categories/1

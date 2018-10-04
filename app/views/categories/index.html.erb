@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Categories</h1>
-
+<!--
 <table>
   <thead>
     <tr>
@@ -28,7 +28,15 @@
     <% end %>
   </tbody>
 </table>
-
+-->
+<hr>
+<% @notelists.each do |notelist| %>
+<hr>
+<%= link_to notelist[:category].name, url_for(controller: :categories, action: :show, id: notelist[:category].id) %>:
+<% notelist[:notes].each do |note| %>
+  「<%=link_to note.title, url_for(controller: :notes, action: :show, id: note.id) %>」&#x20;
+<% end %>
+<% end %>
 <br>
 
 <% if current_user && current_user.has_role?(:admin) %>
